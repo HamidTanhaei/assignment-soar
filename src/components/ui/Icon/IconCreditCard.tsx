@@ -1,18 +1,20 @@
 import React from 'react';
 
-interface IconCreditCardProps {
-  className?: string;
+interface IconProps {
+  width?: number
+  height?: number
+  className?: string
 }
 
-export const IconCreditCard: React.FC<IconCreditCardProps> = ({ className }) => {
+export function IconCreditCard({ width = 24, height = 24, className }: IconProps) {
   return (
     <svg 
-      width="26" 
-      height="26" 
-      viewBox="0 0 26 26" 
+      width={width} 
+      height={height} 
+      className={className}
+      viewBox="0 0 24 24" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <g clipPath="url(#clip0_14_1249)">
         <path d="M22.9608 7.16339V6.80772C22.9608 5.17271 21.6306 3.8425 19.9956 3.8425H2.96522C1.33016 3.84255 0 5.17271 0 6.80772V7.16339H22.9608Z" fill="currentColor"/>
@@ -27,5 +29,5 @@ export const IconCreditCard: React.FC<IconCreditCardProps> = ({ className }) => 
       </defs>
     </svg>
   );
-};
+}
 

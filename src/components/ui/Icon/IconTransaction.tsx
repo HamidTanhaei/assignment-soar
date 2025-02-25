@@ -1,18 +1,20 @@
 import React from 'react';
 
-interface IconTransactionProps {
-  className?: string;
+interface IconProps {
+  width?: number
+  height?: number
+  className?: string
 }
 
-export const IconTransaction: React.FC<IconTransactionProps> = ({ className }) => {
+export function IconTransaction({ width = 24, height = 24, className }: IconProps) {
   return (
     <svg 
-      width="25" 
-      height="25" 
-      viewBox="0 0 25 25" 
+      width={width} 
+      height={height} 
+      className={className}
+      viewBox="0 0 24 24" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <path d="M5.20825 22.9166C5.20891 23.469 5.42861 23.9985 5.81917 24.3891C6.20973 24.7796 6.73925 24.9993 7.29159 25H17.7083C18.2606 24.9993 18.7901 24.7796 19.1807 24.3891C19.5712 23.9985 19.7909 23.469 19.7916 22.9166V22.0052H5.20825V22.9166Z" fill="currentColor"/>
       <path d="M19.7916 2.08333C19.7909 1.531 19.5712 1.00148 19.1807 0.610917C18.7901 0.220358 18.2606 0.00065473 17.7083 0L7.29159 0C6.73925 0.00065473 6.20973 0.220358 5.81917 0.610917C5.42861 1.00148 5.20891 1.531 5.20825 2.08333V3.125H19.7916V2.08333Z" fill="currentColor"/>
@@ -21,4 +23,4 @@ export const IconTransaction: React.FC<IconTransactionProps> = ({ className }) =
       <path d="M3.49828 16.6667L4.88734 15.3354L3.44593 13.8312L0.320931 16.826C0.222115 16.9207 0.142929 17.034 0.0879011 17.1593C0.0328728 17.2846 0.00308028 17.4195 0.000226477 17.5564C-0.00262733 17.6932 0.0215135 17.8293 0.0712692 17.9568C0.121025 18.0843 0.19542 18.2007 0.290202 18.2995L3.4152 21.5547L4.91807 20.112L3.61064 18.75H5.2083V16.6667H3.49828Z" fill="currentColor"/>
     </svg>
   );
-};
+}

@@ -11,8 +11,8 @@ export function MainLayout({ children }: MainLayoutProps) {
       <Sidebar />
       <div className="flex-1">
           <Header />
-          <main>
-          {children}
+          <main className="px-10 py-6">
+            {children}
           </main>
       </div>
     </div>

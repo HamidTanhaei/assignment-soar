@@ -7,3 +7,7 @@ export {IconUser} from './IconUser';
 export {IconInvestment} from './IconInvestment';
 export {IconCreditCard} from './IconCreditCard';
 export {IconSettings} from './IconSettings';
+export {IconNotification} from './IconNotification';
+export {IconSettingsOutline} from './IconSettingsOutline';
+export {IconSearch} from './IconSearch';
+export {IconTask} from './IconTask';

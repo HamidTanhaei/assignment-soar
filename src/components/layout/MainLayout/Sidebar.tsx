@@ -1,4 +1,4 @@
-import { IconHome, IconTransaction, IconEconomics, IconLoan, IconServices, IconUser, IconInvestment, IconCreditCard, IconSettings } from "@/components/ui/Icon"
+import { IconHome, IconTransaction, IconEconomics, IconLoan, IconServices, IconUser, IconInvestment, IconCreditCard, IconSettings, IconTask } from "@/components/ui/Icon"
 import { Link, useLocation } from "react-router"
 
 const menuItems = [
@@ -18,11 +18,11 @@ export function Sidebar() {
 
   return (
     <aside className="w-[250px] border-r flex flex-col bg-white">
-      <div className="flex items-center gap-2 px-2 mb-8 px-6 pt-6">
-        <div className="w-8 h-8 rounded bg-blue-900 text-white grid place-items-center">
-          F
+      <div className="flex items-center gap-2.5 pl-11 mb-8 px-6 pt-7">
+        <div className="rounded text-white grid place-items-center text-zinc-700">
+          <IconTask width={25} height={33} />
         </div>
-        <span className="text-xl font-semibold">Finance</span>
+        <span className="text-xl font-bold text-blue-900">Soar Task</span>
       </div>
 
       <nav className="flex-1">

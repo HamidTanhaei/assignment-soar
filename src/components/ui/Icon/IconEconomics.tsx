@@ -1,18 +1,20 @@
 import React from 'react';
 
-interface IconEconomicsProps {
-  className?: string;
+interface IconProps {
+  width?: number
+  height?: number
+  className?: string
 }
 
-export const IconEconomics: React.FC<IconEconomicsProps> = ({ className }) => {
+export function IconEconomics({ width = 24, height = 24, className }: IconProps) {
   return (
-    <svg
-      width="25"
-      height="25"
-      viewBox="0 0 25 25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <svg 
+      width={width} 
+      height={height} 
       className={className}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_14_1295)">
         <path d="M4.81132 16.6678C5.06271 16.8174 5.27856 17.0121 5.45081 17.2371H8.70598V14.0806L7.16247 13.1236C6.8187 12.9105 6.7128 12.459 6.92592 12.1153C7.13908 11.7716 7.59036 11.6657 7.93427 11.8787L9.43833 12.8112L10.7493 11.9984C8.13445 8.41283 8.73498 3.33221 12.2157 0.464604C6.48221 -1.45611 0.467784 2.8135 0.440638 8.94559C0.426479 12.1976 2.15781 15.0882 4.81132 16.6678Z" fill="#B1B1B1"/>
@@ -28,5 +30,5 @@ export const IconEconomics: React.FC<IconEconomicsProps> = ({ className }) => {
       </defs>
     </svg>
   );
-};
+}
 

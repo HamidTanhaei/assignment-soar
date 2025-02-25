@@ -1,18 +1,20 @@
 import React from 'react';
 
-interface IconUserProps {
-  className?: string;
+interface IconProps {
+  width?: number
+  height?: number
+  className?: string
 }
 
-export const IconUser: React.FC<IconUserProps> = ({ className }) => {
+export function IconUser({ width = 24, height = 24, className }: IconProps) {
   return (
     <svg 
-      width="25" 
-      height="25" 
-      viewBox="0 0 25 25" 
+      width={width} 
+      height={height} 
+      className={className}
+      viewBox="0 0 24 24" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <g clipPath="url(#clip0_14_1290)">
         <path d="M12.3218 12.0426C13.9762 12.0426 15.4088 11.4492 16.5794 10.2785C17.7499 9.10793 18.3433 7.67571 18.3433 6.02109C18.3433 4.36705 17.7499 2.93463 16.5792 1.76372C15.4085 0.593374 13.976 0 12.3218 0C10.6672 0 9.23494 0.593374 8.0644 1.76391C6.89386 2.93444 6.30029 4.36686 6.30029 6.02109C6.30029 7.67571 6.89386 9.10813 8.06459 10.2787C9.23532 11.449 10.6677 12.0426 12.3218 12.0426Z" fill="currentColor"/>
@@ -25,4 +27,4 @@ export const IconUser: React.FC<IconUserProps> = ({ className }) => {
       </defs>
     </svg>
   );
-};
+}

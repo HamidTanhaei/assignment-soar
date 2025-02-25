@@ -1,18 +1,20 @@
 import React from 'react';
 
-interface IconSettingsProps {
-  className?: string;
+interface IconProps {
+  width?: number
+  height?: number
+  className?: string
 }
 
-export const IconSettings: React.FC<IconSettingsProps> = ({ className }) => {
+export function IconSettings({ width = 24, height = 24, className }: IconProps) {
   return (
-    <svg
-      width="25"
-      height="25"
-      viewBox="0 0 25 25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <svg 
+      width={width} 
+      height={height} 
       className={className}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_14_1285)">
         <path
@@ -27,4 +29,4 @@ export const IconSettings: React.FC<IconSettingsProps> = ({ className }) => {
       </defs>
     </svg>
   );
-};
+}

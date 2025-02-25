@@ -7,9 +7,7 @@ import { ExpenseStatistics } from "./ExpenseStatistics"
 
 export function Home() {
   return (
-    <div className="flex min-h-screen">
-      <main className="flex-1 p-8">
-        <div className="grid grid-cols-12 gap-6">
+    <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold">My Cards</h2>
@@ -49,7 +47,5 @@ export function Home() {
             <BalanceHistory />
           </div>
         </div>
-      </main>
-    </div>
   )
 } 
