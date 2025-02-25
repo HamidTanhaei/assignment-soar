@@ -31,7 +31,7 @@ const data = {
       backgroundColor: '#4F46E520',
       tension: 0.4,
       fill: true,
-      pointStyle: false,
+      pointStyle: 'circle',
     },
   ],
 }
