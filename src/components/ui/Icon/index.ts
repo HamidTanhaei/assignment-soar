@@ -11,3 +11,5 @@ export {IconNotification} from './IconNotification';
 export {IconSettingsOutline} from './IconSettingsOutline';
 export {IconSearch} from './IconSearch';
 export {IconTask} from './IconTask';
+export {IconMasterCard} from './IconMasterCard';
+export {IconCardChip} from './IconCardChip';

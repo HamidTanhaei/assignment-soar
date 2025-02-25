@@ -1,0 +1,6 @@
+.card {
+  background: linear-gradient(to right, #5B5A6F, #000000);
+  .card-number {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  }
+}
