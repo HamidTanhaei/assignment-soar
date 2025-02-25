@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
+import { Card } from "./ui/card"
 import { Bar } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -7,7 +7,9 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartOptions,
+  ChartData
 } from 'chart.js'
 
 ChartJS.register(
@@ -19,25 +21,31 @@ ChartJS.register(
   Legend
 )
 
-const data = {
+const data: ChartData<'bar'> = {
   labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
   datasets: [
     {
-      label: 'Deposit',
-      data: [200, 150, 250, 350, 220, 230, 300],
-      backgroundColor: '#4F46E5',
-      borderRadius: 4,
-    },
-    {
       label: 'Withdraw',
       data: [450, 320, 300, 450, 150, 400, 380],
-      backgroundColor: '#1F2937',
-      borderRadius: 4,
+      backgroundColor: '#232323',
+      borderRadius: 10,
+      borderSkipped: false,
+      borderWidth: 3,
+      barThickness: 18,
+    },
+    {
+      label: 'Deposit',
+      data: [200, 150, 250, 350, 220, 230, 300],
+      backgroundColor: '#396AFF',
+      borderRadius: 10,
+      borderSkipped: false,
+      borderWidth: 3,
+      barThickness: 18,
     },
   ],
 }
 
-const options = {
+const options: ChartOptions<'bar'> = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
@@ -50,11 +58,18 @@ const options = {
       grid: {
         color: '#f3f4f6',
       },
+      ticks: {
+        stepSize: 100,
+      },
     },
   },
   plugins: {
     legend: {
       position: 'top' as const,
+      labels: {
+        usePointStyle: true,
+        pointStyle: 'circle',
+      },
       align: 'end' as const,
     },
   },
@@ -62,15 +77,8 @@ const options = {
 
 export function WeeklyActivity() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Weekly Activity</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="h-[300px]">
-          <Bar options={options} data={data} />
-        </div>
-      </CardContent>
+    <Card className="h-[300px] p-7">
+      <Bar options={options} data={data} />
     </Card>
   )
 } 

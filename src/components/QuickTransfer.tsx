@@ -11,12 +11,8 @@ const contacts = [
 
 export function QuickTransfer() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Quick Transfer</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="flex gap-4 mb-6">
+    <Card className="h-[235px] p-7">
+      <div className="flex gap-4 mb-6">
           {contacts.map((contact) => (
             <div key={contact.name} className="text-center">
               <img
@@ -39,7 +35,6 @@ export function QuickTransfer() {
             Send <Send className="h-4 w-4" />
           </Button>
         </div>
-      </CardContent>
     </Card>
   )
 } 

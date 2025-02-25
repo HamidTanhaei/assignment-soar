@@ -8,8 +8,11 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartOptions,
+  Filler
 } from 'chart.js'
+import React from 'react'
 
 ChartJS.register(
   CategoryScale,
@@ -18,7 +21,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 )
 
 const data = {
@@ -26,17 +30,16 @@ const data = {
   datasets: [
     {
       label: 'Balance',
-      data: [200, 300, 400, 700, 400, 500, 600],
-      borderColor: '#4F46E5',
-      backgroundColor: '#4F46E520',
+      data: [250, 200, 450, 400, 800, 600, 650],
+      borderColor: '#1814F3',
       tension: 0.4,
       fill: true,
-      pointStyle: 'circle',
+      pointRadius: 0,
     },
   ],
 }
 
-const options = {
+const options: ChartOptions<'line'> = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
@@ -49,6 +52,10 @@ const options = {
       grid: {
         color: '#f3f4f6',
       },
+      ticks: {
+        stepSize: 200,
+      },
+      beginAtZero: true,
     },
   },
   plugins: {
@@ -59,16 +66,25 @@ const options = {
 }
 
 export function BalanceHistory() {
+  const chartRef = React.useRef<ChartJS<"line">>(null);
+
+  React.useEffect(() => {
+    const chart = chartRef.current;
+    if (chart) {
+      const ctx = chart.ctx;
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, '#2D60FF20');
+      gradient.addColorStop(1, '#2D60FF00');
+      
+      // Update chart data backgroundColor
+      chart.data.datasets[0].backgroundColor = gradient;
+      chart.update();
+    }
+  }, []);
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Balance History</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="h-[300px]">
-          <Line options={options} data={data} />
-        </div>
-      </CardContent>
+    <Card className="h-[276px] p-7">
+      <Line ref={chartRef} options={options} data={data} />
     </Card>
   )
 } 

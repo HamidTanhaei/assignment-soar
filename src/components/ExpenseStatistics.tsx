@@ -1,10 +1,11 @@
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
-import { Doughnut } from 'react-chartjs-2'
+import { Card } from "./ui/card"
+import { Pie } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
-  Legend
+  Legend,
+  ChartOptions
 } from 'chart.js'
 
 ChartJS.register(
@@ -19,42 +20,38 @@ const data = {
     {
       data: [30, 15, 20, 35],
       backgroundColor: [
-        '#4F46E5',
-        '#F97316',
-        '#3B82F6',
-        '#1F2937'
+        '#343c6a',
+        '#FC7900',
+        '#232323',
+        '#396AFF'
       ],
       borderWidth: 0,
     },
   ],
 }
 
-const options = {
+const options: ChartOptions<'pie'> = {
   responsive: true,
   maintainAspectRatio: false,
-  cutout: '60%',
   plugins: {
     legend: {
-      position: 'bottom' as const,
+      position: 'bottom',
       labels: {
         usePointStyle: true,
         pointStyle: 'circle',
       },
-    },
-  },
+    }
+  }
 }
 
 export function ExpenseStatistics() {
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Expense Statistics</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="h-[300px]">
-          <Doughnut options={options} data={data} />
-        </div>
-      </CardContent>
+    <Card className="h-[300px] p-7">
+      <Pie 
+        options={options} 
+        data={data}
+      />
     </Card>
   )
 } 

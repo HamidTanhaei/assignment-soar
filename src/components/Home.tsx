@@ -36,25 +36,27 @@ export function Home() {
           </div>
 
           <div className="col-span-4">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-blue-900">Recent Transactions</h2>
-            </div>
+            <h2 className="text-lg font-semibold text-blue-900 mb-4">Recent Transactions</h2>
             <RecentTransactions className="h-[235px] flex flex-col justify-between" />
           </div>
 
           <div className="col-span-8">
+            <h2 className="text-lg font-semibold text-blue-900 mb-4">Weekly Activity</h2>
             <WeeklyActivity />
           </div>
 
           <div className="col-span-4">
+            <h2 className="text-lg font-semibold text-blue-900 mb-4">Expense Statistics</h2>
             <ExpenseStatistics />
           </div>
 
           <div className="col-span-6">
+            <h2 className="text-lg font-semibold text-blue-900 mb-4">Quick Transfer</h2>
             <QuickTransfer />
           </div>
 
           <div className="col-span-6">
+            <h2 className="text-lg font-semibold text-blue-900 mb-4">Balance History</h2>
             <BalanceHistory />
           </div>
         </div>
