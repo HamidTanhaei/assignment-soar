@@ -13,8 +13,8 @@ module.exports = {
     },
     fontSize: {
       xs: '0.75rem',
-      sm: '0.875rem',
-      base: '1.125rem',      // 18px
+      sm: '0.9375rem',
+      base: '1.125rem',
       lg: '1.25rem',
       xl: '1.75rem',
       '2xl': '1.875rem',
@@ -38,6 +38,12 @@ module.exports = {
         'accent-foreground': 'var(--accent-foreground)',
         blue: {
           900: '#343c6a',
+        },
+        red: {
+          500: '#FF4B4A',
+        },
+        emerald: {
+          400: '#41D4A8',
         },
         gray: {
           400: '#b1b1b1',

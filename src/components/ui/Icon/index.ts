@@ -13,3 +13,6 @@ export {IconSearch} from './IconSearch';
 export {IconTask} from './IconTask';
 export {IconMasterCard} from './IconMasterCard';
 export {IconCardChip} from './IconCardChip';
+export {IconCardMulti} from './IconCardMulti';
+export {IconPaypal} from './IconPaypal';
+export {IconCoin} from './IconCoin';

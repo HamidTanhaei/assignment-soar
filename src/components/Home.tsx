@@ -5,6 +5,7 @@ import { QuickTransfer } from "./QuickTransfer"
 import { BalanceHistory } from "./BalanceHistory"
 import { ExpenseStatistics } from "./ExpenseStatistics"
 import { Link } from "react-router"
+import { RecentTransactions } from "./RecentTransactions"
 
 export function Home() {
   return (
@@ -36,9 +37,9 @@ export function Home() {
 
           <div className="col-span-4">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold">My Cards</h2>
-              <Button variant="link">See All</Button>
+              <h2 className="text-lg font-semibold text-blue-900">Recent Transactions</h2>
             </div>
+            <RecentTransactions className="h-[235px] flex flex-col justify-between" />
           </div>
 
           <div className="col-span-8">
