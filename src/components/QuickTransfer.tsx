@@ -1,7 +1,7 @@
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
+import { Card } from "./ui/card"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
-import { Send } from "lucide-react"
+import { IconCoin } from "./ui/Icon"
 
 const contacts = [
   { name: "Livia Bator", role: "CEO", image: "https://i.pravatar.cc/100?img=1" },
@@ -32,7 +32,7 @@ export function QuickTransfer() {
             defaultValue="525.50"
           />
           <Button className="gap-2">
-            Send <Send className="h-4 w-4" />
+            Send <IconCoin />
           </Button>
         </div>
     </Card>
