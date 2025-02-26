@@ -4,4 +4,5 @@ export const ApiUrl = {
   statsWeekly: 'stats-weekly',
   statsExpenses: 'stats-expenses-pie',
   statsBalanceHistory: 'stats-balance-history',
+  contacts: 'contacts',
 }

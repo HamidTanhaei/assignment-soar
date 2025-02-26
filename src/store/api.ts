@@ -12,6 +12,7 @@ export const api = createApi({
     'TransactionStatsWeekly',
     'TransactionStatsExpenses',
     'TransactionStatsBalanceHistory',
+    'Contacts'
   ],
   endpoints: () => ({})
 });

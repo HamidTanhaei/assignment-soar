@@ -2,21 +2,7 @@ import { Card } from "./ui/card"
 import { IconArrowRight, IconSend } from "./ui/Icon"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-
-const contacts = [
-  { name: "Livia Bator", role: "CEO", image: "https://i.pravatar.cc/100?img=1" },
-  { name: "Randy Press", role: "Director", image: "https://i.pravatar.cc/100?img=2" },
-  { name: "Workman", role: "Designer", image: "https://i.pravatar.cc/100?img=3" },
-  { name: "Sara Nik", role: "CEO", image: "https://i.pravatar.cc/100?img=1" },
-  { name: "Lucky", role: "Director", image: "https://i.pravatar.cc/100?img=2" },
-  { name: "Super Man", role: "Designer", image: "https://i.pravatar.cc/100?img=3" },
-  { name: "Livia Bator", role: "CEO", image: "https://i.pravatar.cc/100?img=1" },
-  { name: "Randy Press", role: "Director", image: "https://i.pravatar.cc/100?img=2" },
-  { name: "Workman", role: "Designer", image: "https://i.pravatar.cc/100?img=3" },
-  { name: "Hamid Tan", role: "CEO", image: "https://i.pravatar.cc/100?img=1" },
-  { name: "Jennifer", role: "Director", image: "https://i.pravatar.cc/100?img=2" },
-  { name: "Super Man", role: "Designer", image: "https://i.pravatar.cc/100?img=3" },
-]
+import { useGetContactsQuery } from "@/store/apis/contacts"
 
 export function QuickTransfer() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -29,8 +15,10 @@ export function QuickTransfer() {
     }
   })
   
+  const { data: contacts = [], isLoading: isContactsLoading } = useGetContactsQuery()
+  
   const contactsPerSlide = 3
-  const totalSlides = Math.ceil(contacts.length / contactsPerSlide)
+  const totalSlides = Math.ceil((contacts?.length || 0) / contactsPerSlide)
   
   const showNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)
@@ -52,6 +40,10 @@ export function QuickTransfer() {
       setShowForm(true)
       setMessage(null)
     }, 3000)
+  }
+
+  if (isContactsLoading) {
+    return <div>Loading...</div>
   }
 
   return (
@@ -113,9 +105,9 @@ export function QuickTransfer() {
                 placeholder="Enter amount" 
                 className="w-full py-4 px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400" 
               />
-              {errors.amount && (
+              {(errors.amount || message) && (
                 <span className="text-red-500 text-xs absolute -bottom-5">
-                  {errors.amount.message?.toString()}
+                  {message || errors.amount?.message?.toString()}
                 </span>
               )}
               <button 
