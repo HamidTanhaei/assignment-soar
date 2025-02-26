@@ -1,23 +1,14 @@
+import { ProfilePicture } from './ProfilePicture';
 import { Input } from './Input';
-import { IconEdit } from "../ui/Icon";
 
 export function ProfileTab() {
     return (
         <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 lg:ml-8">
-            <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-gray-200 relative mb-4">
-                    <img 
-                        className="w-full h-full rounded-full object-cover"
-                        src="/images/user-photo.png"
-                        alt="Profile"
-                    />
-                    <div className="absolute bottom-0 right-0 p-2 rounded-full cursor-pointer bg-black">
-                        <div className="w-4 h-4">
-                            <IconEdit className="text-white" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ProfilePicture 
+                onImageChange={(file) => {
+                    console.log('File selected:', file);
+                }}
+            />
 
             <div className="flex-1">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
