@@ -90,12 +90,12 @@ export function Home() {
             />
           </div>
 
-          <div className="col-span-6">
+          <div className="col-span-5">
             <h2 className="text-lg font-semibold text-blue-900 mb-4">Quick Transfer</h2>
             <QuickTransfer />
           </div>
 
-          <div className="col-span-6">
+          <div className="col-span-7">
             <h2 className="text-lg font-semibold text-blue-900 mb-4">Balance History</h2>
             <BalanceHistory 
               data={formattedBalanceHistory}

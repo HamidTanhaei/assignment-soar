@@ -22,14 +22,12 @@ export function Header({ onMenuClick }: HeaderProps) {
             Overview
           </div>
 
-          <div className={`${
-            'md:w-auto w-full mt-5 md:mt-0 order-last md:order-none'
-          } px-6 py-4 bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-4`}>
+          <div className="md:w-auto w-full mt-5 md:mt-0 order-last md:order-none px-6 bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-4">
             <IconSearch width={19} height={19} />
             <input 
               type="text" 
               placeholder="Search for something" 
-              className="w-full border-none outline-none bg-transparent text-sm placeholder:text-slate-400" 
+              className="w-full py-4 border-none outline-none bg-transparent text-sm placeholder:text-slate-400" 
             />
           </div>
           <div 

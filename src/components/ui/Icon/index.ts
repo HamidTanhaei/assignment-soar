@@ -17,3 +17,5 @@ export {IconCardMulti} from './IconCardMulti';
 export {IconPaypal} from './IconPaypal';
 export {IconCoin} from './IconCoin';
 export {IconEdit} from './IconEdit';
+export {IconArrowRight} from './IconArrowRight';
+export {IconSend} from './IconSend';
