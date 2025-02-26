@@ -101,7 +101,7 @@ export function BalanceHistory({ data = [], isLoading = false }: BalanceHistoryP
   }
 
   return (
-    <Card className="h-[276px] p-7">
+    <Card className="h-[276px]">
       <Line ref={chartRef} options={options} data={chartData} />
     </Card>
   )

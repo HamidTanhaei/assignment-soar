@@ -10,7 +10,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen container mx-auto bg-slate-100 md:flex relative">
+    <div className="min-h-screen container mx-auto bg-white sm:bg-slate-100 md:flex relative">
       {/* Overlay for mobile when sidebar is open */}
       {isSidebarOpen && (
         <div 

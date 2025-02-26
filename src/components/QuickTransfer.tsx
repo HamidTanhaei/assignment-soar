@@ -30,7 +30,7 @@ export function QuickTransfer() {
       return
     }
     
-    setMessage(`Successfully sent $${data.amount} to ${selectedContact}`)
+    setMessage(`Successfully sent $${data.amount} to ${contacts.find(contact => contact.id === selectedContact)?.name}`)
     setShowForm(false)
     setSelectedContact(null)
     reset({ amount: "" })
@@ -47,12 +47,7 @@ export function QuickTransfer() {
   }
 
   return (
-    <Card className="h-[276px] px-7 py-8">
-      {message && (
-        <div className="absolute top-2 right-2 bg-green-100 text-green-700 px-4 py-2 rounded-md text-sm">
-          {message}
-        </div>
-      )}
+    <Card className="sm:h-[276px] flex flex-col justify-around">
       <div className="flex items-center">
         <div className="overflow-hidden">
           <div 
@@ -61,20 +56,20 @@ export function QuickTransfer() {
           >
             {contacts.map((contact) => (
               <div 
-                key={contact.name} 
+                key={contact.id} 
                 className="text-center flex-shrink-0 cursor-pointer"
-                onClick={() => setSelectedContact(prev => prev === contact.name ? null : contact.name)}
+                onClick={() => setSelectedContact(prev => prev === contact.id ? null : contact.id)}
                 style={{ width: `${100 / contactsPerSlide}%` }}
               >
                 <img
                   src={contact.image}
                   alt={contact.name}
-                  className="w-[76px] h-[76px] rounded-full mb-2 mx-auto"
+                  className="w-[50px] h-[50px] xl:w-[76px] xl:h-[76px] rounded-full mb-2 mx-auto"
                 />
-                <p className={`text-md ${selectedContact === contact.name ? 'font-bold' : ''}`}>
+                <p className={`text-xs md:text-md ${selectedContact === contact.id ? 'font-bold' : ''}`}>
                   {contact.name}
                 </p>
-                <p className={`text-sm text-indigo-400 ${selectedContact === contact.name ? 'font-bold' : ''}`}>
+                <p className={`text-xs xl:text-sm text-indigo-400 ${selectedContact === contact.id ? 'font-bold' : ''}`}>
                   {contact.role}
                 </p>
               </div>
@@ -82,18 +77,19 @@ export function QuickTransfer() {
           </div>
         </div>
         {contacts.length > contactsPerSlide && (
-          <button onClick={showNextSlide} className="ml-4 shrink-0 rounded-full p-4 shadow-lg text-indigo-400">
+          <button onClick={showNextSlide} className="ml-4 shrink-0 rounded-full p-3 xl:p-4 shadow-lg text-indigo-400">
             <IconArrowRight className="w-4 h-4" />
           </button>
         )}
       </div>
       <div className="flex gap-4 items-center">
+      
         {showForm ? (
           <>
-            <div className="text-md text-indigo-400 text-nowrap">
+            <div className="text-xs xl:text-sm text-indigo-400 text-nowrap">
               Write Amount
             </div>
-            <div className="md:w-auto w-full mt-5 md:mt-0 order-last md:order-none bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-4 relative">
+            <div className="md:w-auto w-full order-last md:order-none bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-2 xl:gap-4 relative">
               <input 
                 {...register("amount", {
                   pattern: {
@@ -103,7 +99,7 @@ export function QuickTransfer() {
                   required: "Amount is required"
                 })}
                 placeholder="Enter amount" 
-                className="w-full py-4 px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400" 
+                className="w-full py-2 xl:py-4 px-3 xl:px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400" 
               />
               {(errors.amount || message) && (
                 <span className="text-red-500 text-xs absolute -bottom-5">
@@ -112,14 +108,14 @@ export function QuickTransfer() {
               )}
               <button 
                 onClick={handleSubmit(onSubmit)} 
-                className="flex gap-3 py-3 px-6 bg-zinc-700 text-white rounded-full text-md text-meduim hover:bg-zinc-600 transition-colors"
+                className="flex gap-3 py-2 xl:py-3 px-6 bg-zinc-700 text-white rounded-full text-sm xl:text-md text-meduim hover:bg-zinc-600 transition-colors align-center"
               >
-                Send <IconSend />
+                Send <IconSend className="w-4 h-4 xl:w-5 xl:h-5" />
               </button>
             </div>
           </>
         ) : (
-          <div className="w-full text-center text-green-600 font-medium">
+          <div className="w-full text-center text-green-600 font-medium text-xs xl:text-sm">
             {message}
           </div>
         )}

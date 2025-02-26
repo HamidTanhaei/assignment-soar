@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/card';
 import { IconCardMulti } from './ui/Icon/IconCardMulti';
 import { IconPaypal } from './ui/Icon/IconPaypal';
 import { IconCoin } from './ui/Icon/IconCoin';
+import { cn } from '@/lib/utils';
 
 export type Transaction = {
   id: string;
@@ -45,14 +46,13 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
 }
 
 interface RecentTransactionsProps {
-  className?: string;
   transactions: Transaction[];
   isLoading?: boolean;
 }
 
-export function RecentTransactions({ className, transactions, isLoading }: RecentTransactionsProps) {
+export function RecentTransactions({ transactions, isLoading }: RecentTransactionsProps) {
   return (
-    <Card className={`p-6 ${className || ''}`}>
+    <Card disablePadding={true} className="h-[214px] md:h-[235px] flex flex-col gap-3 overflow-y-scroll no-scrollbar p-6">
       {isLoading ? (
         <div className="flex justify-center items-center h-full">
           <p>Loading transactions...</p>

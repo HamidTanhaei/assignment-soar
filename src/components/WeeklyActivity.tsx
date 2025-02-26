@@ -108,7 +108,7 @@ export function WeeklyActivity({ data, isLoading = false }: WeeklyActivityProps)
   }
 
   return (
-    <Card className="h-[300px] p-7">
+    <Card className="h-[300px]">
       <Bar options={options} data={chartData} />
     </Card>
   );

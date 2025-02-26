@@ -21,9 +21,9 @@ export function CreditCard({
 
   return (
     <Card className={cn(
-      "w-[350px] h-[235px] relative overflow-hidden",
+      "w-[350px] h-[235px] flex-shrink-0 relative overflow-hidden",
       variant === "dark" ? `${styles.card} text-white` : "border border-gray-200"
-    )}>
+    )} disablePadding={true}>
       <div className="flex flex-col h-full justify-between">
         <div className="flex justify-between items-center px-6 pt-6">
           <div>
