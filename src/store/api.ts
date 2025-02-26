@@ -4,7 +4,7 @@ export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     credentials: 'include',
-    baseUrl: 'https://run.mocky.io/',
+    baseUrl: 'https://apimocha.com/soar/',
   }),
   tagTypes: [
     'Card',
