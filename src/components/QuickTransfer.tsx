@@ -11,7 +11,7 @@ export function QuickTransfer() {
   const [showForm, setShowForm] = useState(true)
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {
-      amount: "525.50"
+      amount: ""
     }
   })
   
@@ -42,12 +42,9 @@ export function QuickTransfer() {
     }, 3000)
   }
 
-  if (isContactsLoading) {
-    return <div>Loading...</div>
-  }
-
   return (
     <Card className="sm:h-[276px] flex flex-col justify-around">
+      {isContactsLoading && <div className="text-center text-indigo-400 text-sm">Loading Contacts...</div>}
       <div className="flex items-center">
         <div className="overflow-hidden">
           <div 

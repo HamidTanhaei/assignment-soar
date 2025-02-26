@@ -10,9 +10,9 @@ export function CreditCards() {
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-blue-900 mb-6">My Credit Cards</h1>
+      <h1 className="text-sm md:text-lg font-semibold text-blue-900 mb-6">My Credit Cards</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
         {cards.map((card, index) => (
           <CreditCard
             key={card.id}

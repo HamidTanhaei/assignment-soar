@@ -18,7 +18,8 @@ export function Home() {
   
   const displayCards = !isLoadingCards && cards ? cards : [
     { id: 'loading1', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' },
-    { id: 'loading2', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' }
+    { id: 'loading2', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' },
+    { id: 'loading3', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' },
   ];
   
   const formattedExpenseStats = expenseStats ? expenseStats.map(item => ({
@@ -40,8 +41,8 @@ export function Home() {
     <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 xl:col-span-8">
             <div className="flex items-center justify-between mb-4 text-blue-900">
-              <h2 className="text-lg font-semibold">My Cards</h2>
-              <Link to="/credit-cards" className="text-blue-900 hover:underline">
+              <h2 className="text-sm md:text-lg font-semibold">My Cards</h2>
+              <Link to="/credit-cards" className="text-sm md:text-sm text-blue-900 hover:underline font-semibold">
                 See All
               </Link>
             </div>

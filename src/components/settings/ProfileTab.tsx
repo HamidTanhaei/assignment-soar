@@ -36,7 +36,7 @@ export function ProfileTab() {
             />
 
             <div className="flex-1">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     <Input 
                         label="Your Name" 
                         placeholder="Charlene Reed"
