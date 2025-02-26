@@ -10,7 +10,7 @@ const menuItems = [
   { icon: IconLoan, label: "Loans", href: "/loans" },
   { icon: IconServices, label: "Services", href: "/services" },
   { icon: IconEconomics, label: "My Privileges", href: "/my-privileges" },
-  { icon: IconSettings, label: "Setting", href: "/setting" }
+  { icon: IconSettings, label: "Setting", href: "/settings" }
 ]
 
 export function Sidebar() {

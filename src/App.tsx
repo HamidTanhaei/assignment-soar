@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router'
-import { Home } from './components/Home'
-import { MainLayout } from './components/layout/MainLayout/MainLayout'
+import { Home } from '@/routes/Home'
+import { Settings } from '@/routes/Settings'
+import { MainLayout } from '@/components/layout/MainLayout/MainLayout'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<h1>About Page</h1>} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>

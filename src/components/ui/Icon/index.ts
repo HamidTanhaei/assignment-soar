@@ -16,3 +16,4 @@ export {IconCardChip} from './IconCardChip';
 export {IconCardMulti} from './IconCardMulti';
 export {IconPaypal} from './IconPaypal';
 export {IconCoin} from './IconCoin';
+export {IconEdit} from './IconEdit';

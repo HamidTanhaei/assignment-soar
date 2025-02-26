@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button"
-import { CreditCard } from "./CreditCard/CreditCard"
-import { WeeklyActivity } from "./WeeklyActivity"
-import { QuickTransfer } from "./QuickTransfer"
-import { BalanceHistory } from "./BalanceHistory"
-import { ExpenseStatistics } from "./ExpenseStatistics"
+import { CreditCard } from "@/components/CreditCard/CreditCard"
+import { WeeklyActivity } from "@/components/WeeklyActivity"
+import { QuickTransfer } from "@/components/QuickTransfer"
+import { BalanceHistory } from "@/components/BalanceHistory"
+import { ExpenseStatistics } from "@/components/ExpenseStatistics"
 import { Link } from "react-router"
-import { RecentTransactions } from "./RecentTransactions"
+import { RecentTransactions } from "@/components/RecentTransactions"
 
 export function Home() {
   return (

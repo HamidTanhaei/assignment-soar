@@ -54,6 +54,9 @@ module.exports = {
         slate: {
           400: '#778dbb',
         },
+        indigo: {
+          400: '#718EBF',
+        },
       },
     },
   },

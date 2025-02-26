@@ -10,7 +10,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen container mx-auto bg-slate-100 flex relative">
+    <div className="min-h-screen container mx-auto bg-slate-100 md:flex relative">
       {/* Overlay for mobile when sidebar is open */}
       {isSidebarOpen && (
         <div 
@@ -32,9 +32,9 @@ export function MainLayout({ children }: MainLayoutProps) {
         <Sidebar />
       </div>
 
-      <div className="flex-1">
+      <div className="md:flex-1">
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
-        <main className="px-10 py-6">
+        <main className="px-6 md:px-10 py-6">
           {children}
         </main>
       </div>
