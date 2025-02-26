@@ -18,6 +18,7 @@ export function CreditCard({
   cardNumber,
   validThru,
 }: CreditCardProps) {
+
   return (
     <Card className={cn(
       "w-[350px] h-[235px] relative overflow-hidden",

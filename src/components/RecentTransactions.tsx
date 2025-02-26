@@ -3,37 +3,13 @@ import { IconCardMulti } from './ui/Icon/IconCardMulti';
 import { IconPaypal } from './ui/Icon/IconPaypal';
 import { IconCoin } from './ui/Icon/IconCoin';
 
-type Transaction = {
+export type Transaction = {
   id: string;
   title: string;
   date: string;
   amount: number;
   type: 'card' | 'paypal' | 'money';
 };
-
-const transactions: Transaction[] = [
-  {
-    id: '1',
-    title: 'Deposit from my Card',
-    date: '28 January 2021',
-    amount: -850,
-    type: 'card',
-  },
-  {
-    id: '2',
-    title: 'Deposit Paypal',
-    date: '25 January 2021',
-    amount: 2500,
-    type: 'paypal',
-  },
-  {
-    id: '3',
-    title: 'Jemi Wilson',
-    date: '21 January 2021',
-    amount: 5400,
-    type: 'money',
-  },
-];
 
 const icons = {
   card: <IconCardMulti className="w-6 h-6 text-amber-400" />,
@@ -70,14 +46,26 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
 
 interface RecentTransactionsProps {
   className?: string;
+  transactions: Transaction[];
+  isLoading?: boolean;
 }
 
-export function RecentTransactions({ className }: RecentTransactionsProps) {
+export function RecentTransactions({ className, transactions, isLoading }: RecentTransactionsProps) {
   return (
     <Card className={`p-6 ${className || ''}`}>
-      {transactions.map((transaction) => (
-        <TransactionItem key={transaction.id} transaction={transaction} />
-      ))}
+      {isLoading ? (
+        <div className="flex justify-center items-center h-full">
+          <p>Loading transactions...</p>
+        </div>
+      ) : !transactions || transactions.length === 0 ? (
+        <div className="flex justify-center items-center h-full">
+          <p>No recent transactions</p>
+        </div>
+      ) : (
+        transactions.map((transaction) => (
+          <TransactionItem key={transaction.id} transaction={transaction} />
+        ))
+      )}
     </Card>
   );
 } 
