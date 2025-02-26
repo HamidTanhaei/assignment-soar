@@ -6,11 +6,12 @@ import { ExpenseStatistics } from "@/components/ExpenseStatistics"
 import { Link } from "react-router"
 import { RecentTransactions } from "@/components/RecentTransactions"
 import { useGetCardsQuery } from "@/store/apis/cards"
-import { useGetTransactionsQuery } from "@/store/apis/transactions"
+import { useGetTransactionsQuery, useGetStatsWeeklyQuery } from "@/store/apis/transactions"
 
 export function Home() {
   const { data: cards, isLoading: isLoadingCards, error: cardsError } = useGetCardsQuery();
   const { data: transactions, isLoading: isLoadingTransactions } = useGetTransactionsQuery();
+  const { data: weeklyStats, isLoading: isLoadingWeeklyStats } = useGetStatsWeeklyQuery();
   
   const displayCards = !isLoadingCards && cards ? cards : [
     { id: 'loading1', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' },
@@ -57,7 +58,10 @@ export function Home() {
 
           <div className="col-span-8">
             <h2 className="text-lg font-semibold text-blue-900 mb-4">Weekly Activity</h2>
-            <WeeklyActivity />
+            <WeeklyActivity 
+              data={weeklyStats || []} 
+              isLoading={isLoadingWeeklyStats}
+            />
           </div>
 
           <div className="col-span-4">

@@ -9,6 +9,7 @@ export const api = createApi({
   tagTypes: [
     'Card',
     'Transaction',
+    'TransactionStatsWeekly',
   ],
   endpoints: () => ({})
 });
