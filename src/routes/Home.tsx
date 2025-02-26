@@ -7,6 +7,7 @@ import { Link } from "react-router"
 import { RecentTransactions } from "@/components/RecentTransactions"
 import { useGetCardsQuery } from "@/store/apis/cards"
 import { useGetTransactionsQuery, useGetStatsWeeklyQuery, useGetStatsExpensesQuery } from "@/store/apis/transactions"
+import { useMemo } from "react"
 
 export function Home() {
   const { data: cards, isLoading: isLoadingCards, error: cardsError } = useGetCardsQuery();
@@ -23,6 +24,40 @@ export function Home() {
     category: item.type,
     amount: item.value
   })) : [];
+
+  // Calculate balance history data from weekly stats
+  const balanceHistoryData = useMemo((): Array<{ date: string; balance: number }> => {
+    if (!weeklyStats || weeklyStats.length === 0) return [];
+    
+    let cumulativeBalance = 0;
+    
+    // Group transactions by date and calculate net change
+    const balanceByDate = weeklyStats.reduce((acc: Record<string, number>, transaction) => {
+      const { label, type, value } = transaction;
+      
+      if (!acc[label]) {
+        acc[label] = 0;
+      }
+      
+      // Add to balance if deposit, subtract if withdraw
+      if (type === "Deposit") {
+        acc[label] += value;
+      } else if (type === "Withdraw") {
+        acc[label] -= value;
+      }
+      
+      return acc;
+    }, {});
+    
+    // Convert to array format needed for chart
+    return Object.entries(balanceByDate).map(([date, change]) => {
+      cumulativeBalance += change;
+      return {
+        date,
+        balance: cumulativeBalance
+      };
+    });
+  }, [weeklyStats]);
 
   return (
     <div className="grid grid-cols-12 gap-6">
@@ -85,7 +120,10 @@ export function Home() {
 
           <div className="col-span-6">
             <h2 className="text-lg font-semibold text-blue-900 mb-4">Balance History</h2>
-            <BalanceHistory />
+            <BalanceHistory 
+              data={balanceHistoryData}
+              isLoading={isLoadingWeeklyStats}
+            />
           </div>
         </div>
   )

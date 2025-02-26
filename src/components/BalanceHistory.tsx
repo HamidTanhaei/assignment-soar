@@ -10,7 +10,8 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-  Filler
+  Filler,
+  ChartData
 } from 'chart.js'
 import React from 'react'
 
@@ -25,18 +26,12 @@ ChartJS.register(
   Filler
 )
 
-const data = {
-  labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
-  datasets: [
-    {
-      label: 'Balance',
-      data: [250, 200, 450, 400, 800, 600, 650],
-      borderColor: '#1814F3',
-      tension: 0.4,
-      fill: true,
-      pointRadius: 0,
-    },
-  ],
+interface BalanceHistoryProps {
+  data?: Array<{
+    date: string;
+    balance: number;
+  }>;
+  isLoading?: boolean;
 }
 
 const options: ChartOptions<'line'> = {
@@ -65,26 +60,49 @@ const options: ChartOptions<'line'> = {
   },
 }
 
-export function BalanceHistory() {
+export function BalanceHistory({ data = [], isLoading = false }: BalanceHistoryProps) {
   const chartRef = React.useRef<ChartJS<"line">>(null);
 
-  React.useEffect(() => {
-    const chart = chartRef.current;
-    if (chart) {
-      const ctx = chart.ctx;
-      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0, '#2D60FF20');
-      gradient.addColorStop(1, '#2D60FF00');
-      
-      // Update chart data backgroundColor
-      chart.data.datasets[0].backgroundColor = gradient;
-      chart.update();
-    }
-  }, []);
+  const chartData: ChartData<'line'> = {
+    labels: data.map(item => item.date),
+    datasets: [
+      {
+        data: data.map(item => item.balance),
+        borderColor: '#1814F3',
+        tension: 0.5,
+        fill: true,
+        pointRadius: 0,
+        backgroundColor: function(context: {
+          chart: {
+            ctx: CanvasRenderingContext2D;
+            chartArea: { top: number; bottom: number; } | undefined;
+          }
+        }) {
+          const chart = context.chart;
+          const {ctx, chartArea} = chart;
+          
+          if (!chartArea) {
+            return 'rgba(45, 96, 255, 0.1)';
+          }
+          
+          const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+          gradient.addColorStop(0, '#2D60FF20');
+          gradient.addColorStop(1, '#2D60FF00');
+          return gradient;
+        },
+      },
+    ],
+  };
+
+  if (isLoading || data.length === 0) {
+    return <Card className="h-[276px] p-7 flex items-center justify-center text-gray-400">
+      {isLoading ? "Loading balance history..." : "No balance history data available"}
+    </Card>;
+  }
 
   return (
     <Card className="h-[276px] p-7">
-      <Line ref={chartRef} options={options} data={data} />
+      <Line ref={chartRef} options={options} data={chartData} />
     </Card>
   )
 } 
