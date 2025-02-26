@@ -28,7 +28,7 @@ ChartJS.register(
 
 interface BalanceHistoryProps {
   data?: Array<{
-    date: string;
+    month: string;
     balance: number;
   }>;
   isLoading?: boolean;
@@ -64,7 +64,7 @@ export function BalanceHistory({ data = [], isLoading = false }: BalanceHistoryP
   const chartRef = React.useRef<ChartJS<"line">>(null);
 
   const chartData: ChartData<'line'> = {
-    labels: data.map(item => item.date),
+    labels: data.map(item => item.month),
     datasets: [
       {
         data: data.map(item => item.balance),

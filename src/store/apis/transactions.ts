@@ -2,15 +2,20 @@ import { api } from '../api';
 import { ApiUrl } from './apis.const';
 import { Transaction } from '@/components/RecentTransactions';
 
-type Stats = {
+type WeeklyStats = {
   id: string;
   type: "Withdraw" | "Deposit";
   value: number;
   label: "Sat" | "Sun" | "Mon" | "Tue" | "Wed" | "Thu" | "Fri";
 }[];
 
-type Expenses = {
+type ExpensesStats = {
   type: string;
+  value: number;
+}[];
+
+type MonthlyBalanceStats = {
+  month: string;
   value: number;
 }[];
 
@@ -20,13 +25,17 @@ export const transactionsApi = api.injectEndpoints({
       query: () => ApiUrl.transactions,
       providesTags: ['Transaction'],
     }),
-    getStatsWeekly: builder.query<Stats, void>({  
+    getStatsWeekly: builder.query<WeeklyStats, void>({  
       query: () => ApiUrl.statsWeekly,
       providesTags: ['TransactionStatsWeekly'],
     }),
-    getStatsExpenses: builder.query<Expenses, void>({  
+    getStatsExpenses: builder.query<ExpensesStats, void>({  
       query: () => ApiUrl.statsExpenses,
       providesTags: ['TransactionStatsExpenses'],
+    }),
+    getStatsBalanceHistory: builder.query<MonthlyBalanceStats, void>({  
+      query: () => ApiUrl.statsBalanceHistory,
+      providesTags: ['TransactionStatsBalanceHistory'],
     }),
   }),
 });
@@ -35,4 +44,5 @@ export const {
   useGetTransactionsQuery,
   useGetStatsWeeklyQuery,
   useGetStatsExpensesQuery,
+  useGetStatsBalanceHistoryQuery,
 } = transactionsApi;
