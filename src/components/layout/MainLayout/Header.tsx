@@ -1,4 +1,4 @@
-import { IconNotification, IconSearch, IconSettingsOutline } from '@/components/ui/Icon'
+import { IconMenu, IconNotification, IconSearch, IconSettingsOutline } from '@/components/ui/Icon'
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -7,15 +7,13 @@ interface HeaderProps {
 export function Header({ onMenuClick }: HeaderProps) {
   return (
     <header>
-      <nav className="bg-white border-b border-gray-200 px-10 py-5">
+      <nav className="bg-white border-b border-gray-200 px-6 md:px-10 py-5">
         <div className="flex flex-wrap justify-between items-center gap-1 md:gap-4">
           <div
               onClick={onMenuClick}
-              className="hover:bg-gray-200 cursor-pointer rounded-full p-3 lg:hidden"
+              className="cursor-pointer lg:hidden"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
-              </svg>
+              <IconMenu />
           </div>
           <div className="flex md:flex-1 items-center justify-start text-lg md:text-xl font-semibold whitespace-nowrap text-blue-900">
             Overview

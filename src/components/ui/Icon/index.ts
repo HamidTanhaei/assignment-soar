@@ -19,3 +19,4 @@ export {IconCoin} from './IconCoin';
 export {IconEdit} from './IconEdit';
 export {IconArrowRight} from './IconArrowRight';
 export {IconSend} from './IconSend';
+export {IconMenu} from './IconMenu';
