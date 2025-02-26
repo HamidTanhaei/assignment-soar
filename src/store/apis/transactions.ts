@@ -7,7 +7,12 @@ type Stats = {
   type: "Withdraw" | "Deposit";
   value: number;
   label: "Sat" | "Sun" | "Mon" | "Tue" | "Wed" | "Thu" | "Fri";
-}[]
+}[];
+
+type Expenses = {
+  type: string;
+  value: number;
+}[];
 
 export const transactionsApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -16,8 +21,12 @@ export const transactionsApi = api.injectEndpoints({
       providesTags: ['Transaction'],
     }),
     getStatsWeekly: builder.query<Stats, void>({  
-      query: () => ApiUrl.stats,
+      query: () => ApiUrl.statsWeekly,
       providesTags: ['TransactionStatsWeekly'],
+    }),
+    getStatsExpenses: builder.query<Expenses, void>({  
+      query: () => ApiUrl.statsExpenses,
+      providesTags: ['TransactionStatsExpenses'],
     }),
   }),
 });
@@ -25,4 +34,5 @@ export const transactionsApi = api.injectEndpoints({
 export const { 
   useGetTransactionsQuery,
   useGetStatsWeeklyQuery,
+  useGetStatsExpensesQuery,
 } = transactionsApi;

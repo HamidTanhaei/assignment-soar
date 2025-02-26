@@ -10,6 +10,7 @@ export const api = createApi({
     'Card',
     'Transaction',
     'TransactionStatsWeekly',
+    'TransactionStatsExpenses',
   ],
   endpoints: () => ({})
 });

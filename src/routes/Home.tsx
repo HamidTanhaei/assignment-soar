@@ -6,18 +6,24 @@ import { ExpenseStatistics } from "@/components/ExpenseStatistics"
 import { Link } from "react-router"
 import { RecentTransactions } from "@/components/RecentTransactions"
 import { useGetCardsQuery } from "@/store/apis/cards"
-import { useGetTransactionsQuery, useGetStatsWeeklyQuery } from "@/store/apis/transactions"
+import { useGetTransactionsQuery, useGetStatsWeeklyQuery, useGetStatsExpensesQuery } from "@/store/apis/transactions"
 
 export function Home() {
   const { data: cards, isLoading: isLoadingCards, error: cardsError } = useGetCardsQuery();
   const { data: transactions, isLoading: isLoadingTransactions } = useGetTransactionsQuery();
   const { data: weeklyStats, isLoading: isLoadingWeeklyStats } = useGetStatsWeeklyQuery();
+  const { data: expenseStats, isLoading: isLoadingExpenseStats } = useGetStatsExpensesQuery();
   
   const displayCards = !isLoadingCards && cards ? cards : [
     { id: 'loading1', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' },
     { id: 'loading2', balance: 0, cardHolder: 'Loading...', cardNumber: 'Loading...', validThru: 'Loading...' }
   ];
   
+  const formattedExpenseStats = expenseStats ? expenseStats.map(item => ({
+    category: item.type,
+    amount: item.value
+  })) : [];
+
   return (
     <div className="grid grid-cols-12 gap-6">
           <div className="col-span-8">
@@ -66,7 +72,10 @@ export function Home() {
 
           <div className="col-span-4">
             <h2 className="text-lg font-semibold text-blue-900 mb-4">Expense Statistics</h2>
-            <ExpenseStatistics />
+            <ExpenseStatistics 
+              data={formattedExpenseStats}
+              isLoading={isLoadingExpenseStats}
+            />
           </div>
 
           <div className="col-span-6">

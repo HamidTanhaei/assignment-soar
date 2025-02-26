@@ -14,44 +14,56 @@ ChartJS.register(
   Legend
 )
 
-const data = {
-  labels: ['Entertainment', 'Bill Expense', 'Investment', 'Others'],
-  datasets: [
-    {
-      data: [30, 15, 20, 35],
-      backgroundColor: [
-        '#343c6a',
-        '#FC7900',
-        '#232323',
-        '#396AFF'
-      ],
-      borderWidth: 0,
-    },
-  ],
+interface ExpenseStatisticsProps {
+  data: Array<{
+    category: string;
+    amount: number;
+  }>;
+  isLoading?: boolean;
 }
 
-const options: ChartOptions<'pie'> = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: 'bottom',
-      labels: {
-        usePointStyle: true,
-        pointStyle: 'circle',
-      },
-    }
+export function ExpenseStatistics({ data, isLoading = false }: ExpenseStatisticsProps) {
+  if (isLoading || !data || data.length === 0) {
+    return (
+      <Card className="h-[300px] p-7 flex items-center justify-center">
+        <p>{isLoading ? 'Loading expense statistics...' : 'No expense data available'}</p>
+      </Card>
+    );
   }
-}
 
-export function ExpenseStatistics() {
+  const colors = ['#343c6a', '#FC7900', '#232323', '#396AFF', '#4BC0C0', '#FF6384', '#9966FF', '#FFCE56'];
+
+  const chartData = {
+    labels: data.map(item => item.category),
+    datasets: [
+      {
+        data: data.map(item => item.amount),
+        backgroundColor: data.map((_, index) => colors[index % colors.length]),
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  const options: ChartOptions<'pie'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          usePointStyle: true,
+          pointStyle: 'circle',
+        },
+      }
+    }
+  };
 
   return (
     <Card className="h-[300px] p-7">
       <Pie 
         options={options} 
-        data={data}
+        data={chartData}
       />
     </Card>
-  )
+  );
 } 

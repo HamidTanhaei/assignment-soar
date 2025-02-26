@@ -34,19 +34,10 @@ interface WeeklyActivityProps {
 }
 
 export function WeeklyActivity({ data, isLoading = false }: WeeklyActivityProps) {
-  // If loading or no data, show placeholder or loading state
-  if (isLoading) {
+  if (isLoading || !data || data.length === 0) {
     return (
       <Card className="h-[300px] p-7 flex items-center justify-center">
-        <p>Loading weekly activity data...</p>
-      </Card>
-    );
-  }
-
-  if (!data || data.length === 0) {
-    return (
-      <Card className="h-[300px] p-7 flex items-center justify-center">
-        <p>No weekly activity data available</p>
+        <p>{isLoading ? 'Loading weekly activity data...' : 'No weekly activity data available'}</p>
       </Card>
     );
   }
