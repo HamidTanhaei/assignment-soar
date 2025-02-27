@@ -1,7 +1,7 @@
-import { Card } from '../../../components/atom/card.tsx';
-import { IconArrowRight, IconSend } from '../../../components/atom/Icon';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Card } from '@/components/atom';
+import { IconArrowRight, IconSend } from '@/components/atom/Icon';
 import { useGetContactsQuery } from '@/store/apis/contacts.ts';
 
 export function QuickTransfer() {

@@ -1,4 +1,4 @@
-import { Card } from '@/components/atom/card.tsx';
+import { Card } from '@/components/atom';
 import { IconCardMulti, IconPaypal, IconCoin } from '@/components/atom/Icon';
 
 export type Transaction = {

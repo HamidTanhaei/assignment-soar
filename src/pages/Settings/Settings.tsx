@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ProfileTab, PreferencesTab, SecurityTab } from './components';
-import { Card } from '@/components/atom/card.tsx';
+import { Card } from '@/components/atom';
 
 export function Settings() {
   const [activeTab, setActiveTab] = useState('profile');
