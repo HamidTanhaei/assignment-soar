@@ -1,8 +1,8 @@
 export const ApiUrl = {
-  cards: 'cards',
-  transactions: 'transactions',
-  statsWeekly: 'stats-weekly',
-  statsExpenses: 'stats-expenses-pie',
-  statsBalanceHistory: 'stats-balance-history',
-  contacts: 'contacts',
+  cards: '/mockapi/cards.json',
+  transactions: '/mockapi/transactions.json',
+  statsWeekly: '/mockapi/stats-weekly.json',
+  statsExpenses: '/mockapi/stats-expenses-pie.json',
+  statsBalanceHistory: '/mockapi/stats-balance-history.json',
+  contacts: '/mockapi/contacts.json',
 };

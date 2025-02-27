@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1a2b3c4d",
+    "cardNumber": "3778 **** **** 1234",
+    "cardHolder": "John Doe",
+    "validThru": "12/26",
+    "balance": 1500.75
+  },
+  {
+    "id": "2b3c4d5e",
+    "cardNumber": "5502 **** **** 5678",
+    "cardHolder": "Alice Johnson",
+    "validThru": "08/27",
+    "balance": 325.50
+  },
+  {
+    "id": "3c4d5e6f",
+    "cardNumber": "6019 **** **** 9101",
+    "cardHolder": "Michael Smith",
+    "validThru": "05/28",
+    "balance": 2000.00
+  },
+  {
+    "id": "4d5e6f7g",
+    "cardNumber": "4539 **** **** 2345",
+    "cardHolder": "Emily Brown",
+    "validThru": "09/25",
+    "balance": 785.90
+  },
+  {
+    "id": "5e6f7g8h",
+    "cardNumber": "3021 **** **** 6789",
+    "cardHolder": "David Wilson",
+    "validThru": "11/29",
+    "balance": 1245.30
+  },
+  {
+    "id": "6f7g8h9i",
+    "cardNumber": "3772 **** **** 4321",
+    "cardHolder": "Sophia Martinez",
+    "validThru": "07/26",
+    "balance": 980.40
+  },
+  {
+    "id": "7g8h9i0j",
+    "cardNumber": "6014 **** **** 5678",
+    "cardHolder": "Liam Anderson",
+    "validThru": "03/30",
+    "balance": 500.00
+  },
+  {
+    "id": "8h9i0j1k",
+    "cardNumber": "5507 **** **** 1122",
+    "cardHolder": "Olivia White",
+    "validThru": "06/28",
+    "balance": 1755.65
+  },
+  {
+    "id": "9i0j1k2l",
+    "cardNumber": "4536 **** **** 8899",
+    "cardHolder": "Ethan Harris",
+    "validThru": "10/27",
+    "balance": 620.80
+  },
+  {
+    "id": "0j1k2l3m",
+    "cardNumber": "3025 **** **** 3344",
+    "cardHolder": "Ava Robinson",
+    "validThru": "01/31",
+    "balance": 1340.95
+  }
+]

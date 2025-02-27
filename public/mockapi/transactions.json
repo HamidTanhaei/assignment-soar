@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "John Doe",
+    "date": "15 March 2023",
+    "amount": 3200,
+    "type": "card"
+  },
+  {
+    "id": "2",
+    "title": "Alice Smith",
+    "date": "28 July 2022",
+    "amount": 4500,
+    "type": "paypal"
+  },
+  {
+    "id": "3",
+    "title": "Michael Brown",
+    "date": "12 December 2021",
+    "amount": 5100,
+    "type": "money"
+  },
+  {
+    "id": "4",
+    "title": "Emily Johnson",
+    "date": "05 May 2023",
+    "amount": 2750,
+    "type": "card"
+  },
+  {
+    "id": "5",
+    "title": "David Wilson",
+    "date": "19 August 2020",
+    "amount": 6000,
+    "type": "paypal"
+  },
+  {
+    "id": "6",
+    "title": "Sophia Martinez",
+    "date": "30 October 2024",
+    "amount": 3500,
+    "type": "card"
+  },
+  {
+    "id": "7",
+    "title": "Liam Anderson",
+    "date": "09 April 2022",
+    "amount": 4100,
+    "type": "money"
+  },
+  {
+    "id": "8",
+    "title": "Olivia White",
+    "date": "21 January 2021",
+    "amount": 5400,
+    "type": "card"
+  },
+  {
+    "id": "9",
+    "title": "Ethan Harris",
+    "date": "18 June 2023",
+    "amount": 2900,
+    "type": "paypal"
+  },
+  {
+    "id": "10",
+    "title": "Ava Robinson",
+    "date": "03 September 2022",
+    "amount": 4800,
+    "type": "card"
+  }
+]

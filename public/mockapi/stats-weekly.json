@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "type": "Withdraw",
+    "value": 240,
+    "label": "Sat"
+  },
+  {
+    "id": "2",
+    "type": "Withdraw",
+    "value": 403,
+    "label": "Sun"
+  },
+  {
+    "id": "3",
+    "type": "Withdraw",
+    "value": 133,
+    "label": "Mon"
+  },
+  {
+    "id": "4",
+    "type": "Withdraw",
+    "value": 493,
+    "label": "Tue"
+  },
+  {
+    "id": "5",
+    "type": "Withdraw",
+    "value": 349,
+    "label": "Wed"
+  },
+  {
+    "id": "6",
+    "type": "Withdraw",
+    "value": 215,
+    "label": "Thu"
+  },
+  {
+    "id": "7",
+    "type": "Withdraw",
+    "value": 232,
+    "label": "Fri"
+  },
+  {
+    "id": "8",
+    "type": "Deposit",
+    "value": 368,
+    "label": "Sat"
+  },
+  {
+    "id": "9",
+    "type": "Deposit",
+    "value": 227,
+    "label": "Sun"
+  },
+  {
+    "id": "10",
+    "type": "Deposit",
+    "value": 328,
+    "label": "Mon"
+  },
+  {
+    "id": "11",
+    "type": "Deposit",
+    "value": 216,
+    "label": "Tue"
+  },
+  {
+    "id": "12",
+    "type": "Deposit",
+    "value": 309,
+    "label": "Wed"
+  },
+  {
+    "id": "13",
+    "type": "Deposit",
+    "value": 169,
+    "label": "Thu"
+  },
+  {
+    "id": "14",
+    "type": "Deposit",
+    "value": 445,
+    "label": "Fri"
+  }
+]

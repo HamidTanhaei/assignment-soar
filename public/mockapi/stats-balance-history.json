@@ -1,0 +1,30 @@
+[
+  {
+    "month": "Jul",
+    "value": 250
+  },
+  {
+    "month": "Aug",
+    "value": 200
+  },
+  {
+    "month": "Sep",
+    "value": 450
+  },
+  {
+    "month": "Oct",
+    "value": 400
+  },
+  {
+    "month": "Nov",
+    "value": 800
+  },
+  {
+    "month": "Dec",
+    "value": 600
+  },
+  {
+    "month": "Jan",
+    "value": 650
+  }
+]

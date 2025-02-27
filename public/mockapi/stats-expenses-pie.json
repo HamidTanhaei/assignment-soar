@@ -1,0 +1,18 @@
+[
+  {
+    "type": "Entertainment",
+    "value": 30
+  },
+  {
+    "type": "Bill Expense",
+    "value": 15
+  },
+  {
+    "type": "Investment",
+    "value": 20
+  },
+  {
+    "type": "Others",
+    "value": 35
+  }
+]
