@@ -20,6 +20,8 @@ export function CreditCard({
 }: CreditCardProps) {
   return (
     <Card
+      role='option'
+      tabIndex={0}
       className={cn(
         'w-[265px] md:w-[350px] h-[170px] md:h-[235px] flex-shrink-0 relative overflow-hidden',
         variant === 'dark'

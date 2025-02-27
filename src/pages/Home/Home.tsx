@@ -79,17 +79,18 @@ export function Home() {
 
   return (
     <div className='grid grid-cols-12 gap-6'>
-      <div className='col-span-12 xl:col-span-8'>
+      <div className='col-span-12 xl:col-span-8' role="group" aria-labelledby="credit-cards">
         <div className='flex items-center justify-between mb-4 text-blue-900'>
-          <h2 className='text-sm md:text-lg font-semibold'>My Cards</h2>
+          <h2 className='text-sm md:text-lg font-semibold' id="credit-cards">My Cards</h2>
           <Link
             to={browserRoutes['credit-cards']}
             className='text-sm md:text-sm text-blue-900 hover:underline font-semibold'
+            aria-label="See all credit cards"
           >
             See All
           </Link>
         </div>
-        <div className='w-full flex flex-row gap-8 overflow-x-scroll no-scrollbar'>
+        <div className='w-full flex flex-row gap-8 overflow-x-scroll no-scrollbar' role="listbox">
           {cardsError ? (
             <div>Error loading cards</div>
           ) : !cards && !isLoadingCards ? (
@@ -111,8 +112,8 @@ export function Home() {
         </div>
       </div>
 
-      <div className='col-span-12 xl:col-span-4'>
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4'>
+      <div className='col-span-12 xl:col-span-4' aria-labelledby="recent-transactions">
+        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="recent-transactions">
           Recent Transactions
         </h2>
         <RecentTransactions
@@ -121,8 +122,8 @@ export function Home() {
         />
       </div>
 
-      <div className='col-span-12 md:col-span-8'>
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4'>
+      <div className='col-span-12 md:col-span-8' aria-labelledby="weekly-activity">
+        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="weekly-activity">
           Weekly Activity
         </h2>
         <WeeklyActivity
@@ -131,8 +132,8 @@ export function Home() {
         />
       </div>
 
-      <div className='col-span-12 md:col-span-4'>
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4'>
+      <div className='col-span-12 md:col-span-4' aria-labelledby="expense-statistics">
+        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="expense-statistics">
           Expense Statistics
         </h2>
         <ExpenseStatistics
@@ -141,15 +142,15 @@ export function Home() {
         />
       </div>
 
-      <div className='col-span-12 sm:col-span-6 lg:col-span-5'>
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4'>
+      <div className='col-span-12 sm:col-span-6 lg:col-span-5' aria-labelledby="quick-transfer">
+        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="quick-transfer">
           Quick Transfer
         </h2>
         <QuickTransfer />
       </div>
 
-      <div className='col-span-12 sm:col-span-6 lg:col-span-7'>
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4'>
+      <div className='col-span-12 sm:col-span-6 lg:col-span-7' aria-labelledby="balance-history">
+        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="balance-history">
           Balance History
         </h2>
         <BalanceHistory

@@ -25,9 +25,9 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
   const { title, date, amount, type } = transaction;
 
   return (
-    <div className='flex items-center justify-between'>
+    <div className='flex items-center justify-between' role="option" tabIndex={0}>
       <div className='flex items-center gap-4'>
-        <div className={`p-4 ${backgroundColors[type]} rounded-full`}>
+        <div className={`p-4 ${backgroundColors[type]} rounded-full`} aria-label={`${type}`}>
           {icons[type]}
         </div>
         <div>
@@ -35,7 +35,7 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
           <p className='text-sm text-slate-400'>{date}</p>
         </div>
       </div>
-      <span className={amount < 0 ? 'text-red-500' : 'text-emerald-400'}>
+      <span className={amount < 0 ? 'text-red-500' : 'text-emerald-400'} aria-label={`${amount < 0 ? 'Withdrawal' : 'Deposit'} ${Math.abs(amount).toLocaleString()}`}>
         {amount < 0 ? '-' : '+'}${Math.abs(amount).toLocaleString()}
       </span>
     </div>
@@ -55,6 +55,7 @@ export function RecentTransactions({
     <Card
       disablePadding={true}
       className='h-[214px] md:h-[235px] flex flex-col gap-3 overflow-y-scroll no-scrollbar p-6'
+      role="listbox"
     >
       {isLoading ? (
         <div className='flex justify-center items-center h-full'>

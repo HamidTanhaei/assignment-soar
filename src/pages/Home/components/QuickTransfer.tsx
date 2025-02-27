@@ -14,6 +14,7 @@ export function QuickTransfer() {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm({
     defaultValues: {
       amount: '',
@@ -28,6 +29,10 @@ export function QuickTransfer() {
 
   const showNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const toggleContact = (contactId: string) => {
+    setSelectedContact((prev) => prev === contactId ? null : contactId);
   };
 
   const onSubmit = (data: { amount: string }) => {
@@ -46,11 +51,14 @@ export function QuickTransfer() {
     setTimeout(() => {
       setShowForm(true);
       setMessage(null);
-    }, 3000);
+    }, 3500);
   };
 
   return (
     <Card className='sm:h-[276px] flex flex-col justify-around'>
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {message}
+      </div>
       {isContactsLoading && (
         <div className='text-center text-indigo-400 text-sm'>
           Loading Contacts...
@@ -61,17 +69,23 @@ export function QuickTransfer() {
           <div
             className='flex mb-6 transition-transform duration-300 ease-in-out'
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            role="listbox"
           >
             {contacts.map((contact) => (
               <div
                 key={contact.id}
                 className='text-center flex-shrink-0 cursor-pointer'
-                onClick={() =>
-                  setSelectedContact((prev) =>
-                    prev === contact.id ? null : contact.id
-                  )
-                }
+                onClick={() => toggleContact(contact.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleContact(contact.id);
+                  }
+                }}
                 style={{ width: `${100 / contactsPerSlide}%` }}
+                role="option"
+                aria-selected={selectedContact === contact.id}
+                tabIndex={0}
               >
                 <img
                   src={contact.image}
@@ -79,7 +93,7 @@ export function QuickTransfer() {
                   className='w-[50px] h-[50px] xl:w-[76px] xl:h-[76px] rounded-full mb-2 mx-auto'
                 />
                 <p
-                  className={`text-xs md:text-md ${selectedContact === contact.id ? 'font-bold' : ''}`}
+                  className={`text-xs md:text-sm ${selectedContact === contact.id ? 'font-bold' : ''}`}
                 >
                   {contact.name}
                 </p>
@@ -96,6 +110,7 @@ export function QuickTransfer() {
           <button
             onClick={showNextSlide}
             className='ml-4 shrink-0 rounded-full p-3 xl:p-4 shadow-lg text-indigo-400'
+            tabIndex={-1}
           >
             <IconArrowRight className='w-4 h-4' />
           </button>
@@ -116,7 +131,7 @@ export function QuickTransfer() {
                   },
                   required: 'Amount is required',
                 })}
-                placeholder='Enter amount'
+                placeholder='Enter amount you want to send'
                 className='w-full py-2 xl:py-4 px-3 xl:px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400'
               />
               {(errors.amount || message) && (
@@ -127,13 +142,16 @@ export function QuickTransfer() {
               <button
                 onClick={handleSubmit(onSubmit)}
                 className='flex gap-3 py-2 xl:py-3 px-6 bg-zinc-700 text-white rounded-full text-sm xl:text-md text-meduim hover:bg-zinc-600 transition-colors align-center'
+                aria-label={`Send ${watch('amount') || ''} dollars to ${contacts.find(c => c.id === selectedContact)?.name || ''}`}
               >
                 Send <IconSend className='w-4 h-4 xl:w-5 xl:h-5' />
               </button>
             </div>
           </>
         ) : (
-          <div className='w-full text-center text-green-600 font-medium text-xs xl:text-sm'>
+          <div 
+            className='w-full text-center text-green-600 font-medium text-xs xl:text-sm'
+          >
             {message}
           </div>
         )}
