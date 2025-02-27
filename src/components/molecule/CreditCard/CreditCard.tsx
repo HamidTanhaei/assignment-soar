@@ -2,14 +2,7 @@ import { Card } from '../../atom';
 import { IconCardChip, IconMasterCard } from '@/components/atom/Icon';
 import { cn } from '@/lib/utils.ts';
 import styles from './CreditCard.module.css';
-
-interface CreditCardProps {
-  variant: 'dark' | 'light';
-  balance: number;
-  cardHolder: string;
-  cardNumber: string;
-  validThru: string;
-}
+import { CreditCardProps } from './CreditCard.types';
 
 export function CreditCard({
   variant,

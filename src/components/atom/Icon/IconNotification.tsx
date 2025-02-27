@@ -1,22 +1,12 @@
-interface IconProps {
-  width?: number;
-  height?: number;
-  className?: string;
-}
-
-export function IconNotification({
-  width = 24,
-  height = 24,
-  className,
-}: IconProps) {
+export const IconNotification = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width={width}
-      height={height}
-      className={className}
+      width={24}
+      height={24}
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      {...props}
     >
       <path
         d='M11.442 25C9.289 25 7.53577 23.2479 7.53577 21.0938C7.53577 20.6625 7.88577 20.3125 8.31702 20.3125C8.74827 20.3125 9.09827 20.6625 9.09827 21.0938C9.09827 22.3866 10.1504 23.4375 11.442 23.4375C12.7337 23.4375 13.7858 22.3866 13.7858 21.0938C13.7858 20.6625 14.1358 20.3125 14.567 20.3125C14.9983 20.3125 15.3483 20.6625 15.3483 21.0938C15.3483 23.2479 13.5952 25 11.442 25Z'

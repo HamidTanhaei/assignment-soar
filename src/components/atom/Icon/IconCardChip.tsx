@@ -1,6 +1,4 @@
-import { SVGProps } from 'react';
-
-export function IconCardChip(props: SVGProps<SVGSVGElement>) {
+export const IconCardChip = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       viewBox='0 0 300 300'

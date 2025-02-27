@@ -1,19 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { ProfilePicture } from './ProfilePicture.tsx';
 import { Input } from './Input.tsx';
-
-interface ProfileFormData {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  dateOfBirth: string;
-  presentAddress: string;
-  permanentAddress: string;
-  city: string;
-  postalCode: string;
-  country: string;
-}
+import { ProfileFormData } from './ProfileTab.types';
 
 export function ProfileTab() {
   const {

@@ -1,6 +1,6 @@
 import { api } from '../api';
 import { ApiUrl } from './apis.const';
-import { Transaction } from '@/pages/Home/components/RecentTransactions.tsx';
+import { Transaction } from '@/types/general';
 
 type WeeklyStats = {
   id: string;

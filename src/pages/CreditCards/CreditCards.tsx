@@ -9,12 +9,12 @@ export function CreditCards() {
   if (!cards || cards.length === 0) return <div>No cards found</div>;
 
   return (
-    <div>
+    <div className='max-w-6xl'>
       <h1 className='text-sm md:text-lg font-semibold text-blue-900 mb-6'>
         My Credit Cards
       </h1>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 justify-center'>
         {cards.map((card, index) => (
           <CreditCard
             key={card.id}

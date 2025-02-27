@@ -1,13 +1,7 @@
 import { Card } from '@/components/atom';
 import { IconCardMulti, IconPaypal, IconCoin } from '@/components/atom/Icon';
-
-export type Transaction = {
-  id: string;
-  title: string;
-  date: string;
-  amount: number;
-  type: 'card' | 'paypal' | 'money';
-};
+import type { Transaction } from '@/types/general'
+import type { RecentTransactionsProps } from './RecentTransactions.types';
 
 const icons = {
   card: <IconCardMulti className='w-6 h-6 text-amber-400' />,
@@ -40,11 +34,6 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
       </span>
     </div>
   );
-}
-
-interface RecentTransactionsProps {
-  transactions: Transaction[];
-  isLoading?: boolean;
 }
 
 export function RecentTransactions({

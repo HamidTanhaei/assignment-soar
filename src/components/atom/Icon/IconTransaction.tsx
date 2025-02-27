@@ -1,22 +1,12 @@
-interface IconProps {
-  width?: number;
-  height?: number;
-  className?: string;
-}
-
-export function IconTransaction({
-  width = 24,
-  height = 24,
-  className,
-}: IconProps) {
+export const IconTransaction= (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width={width}
-      height={height}
-      className={className}
+      width={25}
+      height={23}
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      {...props}
     >
       <path
         d='M5.20825 22.9166C5.20891 23.469 5.42861 23.9985 5.81917 24.3891C6.20973 24.7796 6.73925 24.9993 7.29159 25H17.7083C18.2606 24.9993 18.7901 24.7796 19.1807 24.3891C19.5712 23.9985 19.7909 23.469 19.7916 22.9166V22.0052H5.20825V22.9166Z'

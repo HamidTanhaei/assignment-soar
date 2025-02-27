@@ -1,24 +1,12 @@
-import { FC } from 'react';
-
-interface IconTaskProps {
-  width?: number;
-  height?: number;
-  className?: string;
-}
-
-export const IconTask: FC<IconTaskProps> = ({
-  width = 25,
-  height = 33,
-  className,
-}) => {
+export const IconTask= (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width={width}
-      height={height}
+      width={25}
+      height={23}
       viewBox='0 0 25 33'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={className}
+      {...props}
     >
       <path
         fillRule='evenodd'

@@ -1,18 +1,12 @@
-interface IconProps {
-  width?: number;
-  height?: number;
-  className?: string;
-}
-
-export function IconUser({ width = 24, height = 24, className }: IconProps) {
+export const IconUser= (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width={width}
-      height={height}
-      className={className}
+      width={24}
+      height={24}
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      {...props}
     >
       <g clipPath='url(#clip0_14_1290)'>
         <path
