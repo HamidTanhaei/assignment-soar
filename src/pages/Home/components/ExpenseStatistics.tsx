@@ -1,11 +1,11 @@
 import { Pie } from 'react-chartjs-2';
 import { Card } from '@/components/atom';
+import { useExpenseStatistics } from './ExpenseStatistics.hook';
 import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
   Legend,
-  ChartOptions,
 } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -22,6 +22,8 @@ export function ExpenseStatistics({
   data,
   isLoading = false,
 }: ExpenseStatisticsProps) {
+  const { chartData, options } = useExpenseStatistics(data);
+
   if (isLoading || !data || data.length === 0) {
     return (
       <Card className='h-[300px] p-7 flex items-center justify-center'>
@@ -33,42 +35,6 @@ export function ExpenseStatistics({
       </Card>
     );
   }
-
-  const colors = [
-    '#343c6a',
-    '#FC7900',
-    '#232323',
-    '#396AFF',
-    '#4BC0C0',
-    '#FF6384',
-    '#9966FF',
-    '#FFCE56',
-  ];
-
-  const chartData = {
-    labels: data.map((item) => item.category),
-    datasets: [
-      {
-        data: data.map((item) => item.amount),
-        backgroundColor: data.map((_, index) => colors[index % colors.length]),
-        borderWidth: 0,
-      },
-    ],
-  };
-
-  const options: ChartOptions<'pie'> = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          usePointStyle: true,
-          pointStyle: 'circle',
-        },
-      },
-    },
-  };
 
   return (
     <Card className='h-[300px]'>
