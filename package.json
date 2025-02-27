@@ -14,7 +14,6 @@
     "@reduxjs/toolkit": "^2.6.0",
     "autoprefixer": "^10.4.20",
     "chart.js": "^4.4.8",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "install": "^0.13.0",
     "postcss": "^8.5.0",
