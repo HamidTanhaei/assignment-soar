@@ -1,16 +1,17 @@
 import { IconHome, IconTransaction, IconEconomics, IconLoan, IconServices, IconUser, IconInvestment, IconCreditCard, IconSettings, IconTask } from "@/components/ui/Icon"
 import { Link, useLocation } from "react-router"
+import {browserRoutes} from "@/consts";
 
 const menuItems = [
-  { icon: IconHome, label: "Dashboard", href: "/" },
-  { icon: IconTransaction, label: "Transactions", href: "/transactions" },
-  { icon: IconUser, label: "Accounts", href: "/accounts" },
-  { icon: IconInvestment, label: "Investments", href: "/investments" },
-  { icon: IconCreditCard, label: "Credit Cards", href: "/credit-cards" },
-  { icon: IconLoan, label: "Loans", href: "/loans" },
-  { icon: IconServices, label: "Services", href: "/services" },
-  { icon: IconEconomics, label: "My Privileges", href: "/my-privileges" },
-  { icon: IconSettings, label: "Setting", href: "/settings" }
+  { icon: IconHome, label: "Dashboard", href: browserRoutes.home },
+  { icon: IconTransaction, label: "Transactions"},
+  { icon: IconUser, label: "Accounts" },
+  { icon: IconInvestment, label: "Investments" },
+  { icon: IconCreditCard, label: "Credit Cards", href: browserRoutes["credit-cards"] },
+  { icon: IconLoan, label: "Loans"},
+  { icon: IconServices, label: "Services" },
+  { icon: IconEconomics, label: "My Privileges" },
+  { icon: IconSettings, label: "Setting", href: browserRoutes.settings },
 ]
 
 export function Sidebar() {
@@ -34,7 +35,7 @@ export function Sidebar() {
             return (
               <li key={item.href}>
                 <Link
-                  to={item.href}
+                  to={item.href || '#'}
                   className={`flex items-center gap-6 pl-11 pr-3 py-2 rounded-lg relative
                     ${isActive ? "text-zinc-700" : "text-gray-400"}
                     hover:text-zinc-700 hover:bg-gray-100

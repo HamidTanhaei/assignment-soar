@@ -1,0 +1,1 @@
+export {browserRoutes} from './browserRoutes';

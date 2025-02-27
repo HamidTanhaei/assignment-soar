@@ -8,6 +8,7 @@ import { ExpenseStatistics } from "@/components/ExpenseStatistics"
 import { RecentTransactions } from "@/components/RecentTransactions"
 import { useGetCardsQuery } from "@/store/apis/cards"
 import { useGetTransactionsQuery, useGetStatsWeeklyQuery, useGetStatsExpensesQuery, useGetStatsBalanceHistoryQuery } from "@/store/apis/transactions"
+import {browserRoutes} from "@/consts";
 
 export function Home() {
   const { data: cards, isLoading: isLoadingCards, error: cardsError } = useGetCardsQuery();
@@ -42,7 +43,7 @@ export function Home() {
           <div className="col-span-12 xl:col-span-8">
             <div className="flex items-center justify-between mb-4 text-blue-900">
               <h2 className="text-sm md:text-lg font-semibold">My Cards</h2>
-              <Link to="/credit-cards" className="text-sm md:text-sm text-blue-900 hover:underline font-semibold">
+              <Link to={browserRoutes["credit-cards"]} className="text-sm md:text-sm text-blue-900 hover:underline font-semibold">
                 See All
               </Link>
             </div>
