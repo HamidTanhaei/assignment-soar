@@ -1,5 +1,5 @@
-import { Card } from "../../../components/atom/card.tsx"
-import { Bar } from 'react-chartjs-2'
+import { Card } from '../../../components/atom/card.tsx';
+import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,8 +9,8 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-  ChartData
-} from 'chart.js'
+  ChartData,
+} from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
@@ -19,37 +19,44 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend
-)
+);
 
 type StatsItem = {
   id: string;
-  type: "Withdraw" | "Deposit";
+  type: 'Withdraw' | 'Deposit';
   value: number;
-  label: "Sat" | "Sun" | "Mon" | "Tue" | "Wed" | "Thu" | "Fri";
-}
+  label: 'Sat' | 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri';
+};
 
 interface WeeklyActivityProps {
   data: StatsItem[];
   isLoading?: boolean;
 }
 
-export function WeeklyActivity({ data, isLoading = false }: WeeklyActivityProps) {
+export function WeeklyActivity({
+  data,
+  isLoading = false,
+}: WeeklyActivityProps) {
   if (isLoading || !data || data.length === 0) {
     return (
-      <Card className="h-[300px] p-7 flex items-center justify-center">
-        <p>{isLoading ? 'Loading weekly activity data...' : 'No weekly activity data available'}</p>
+      <Card className='h-[300px] p-7 flex items-center justify-center'>
+        <p>
+          {isLoading
+            ? 'Loading weekly activity data...'
+            : 'No weekly activity data available'}
+        </p>
       </Card>
     );
   }
 
-  const days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-  const withdrawData = days.map(day => {
-    const item = data.find(d => d.label === day && d.type === "Withdraw");
+  const days = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+  const withdrawData = days.map((day) => {
+    const item = data.find((d) => d.label === day && d.type === 'Withdraw');
     return item ? item.value : 0;
   });
-  
-  const depositData = days.map(day => {
-    const item = data.find(d => d.label === day && d.type === "Deposit");
+
+  const depositData = days.map((day) => {
+    const item = data.find((d) => d.label === day && d.type === 'Deposit');
     return item ? item.value : 0;
   });
 
@@ -75,7 +82,7 @@ export function WeeklyActivity({ data, isLoading = false }: WeeklyActivityProps)
         barThickness: 18,
       },
     ],
-  }
+  };
 
   const options: ChartOptions<'bar'> = {
     responsive: true,
@@ -105,11 +112,11 @@ export function WeeklyActivity({ data, isLoading = false }: WeeklyActivityProps)
         align: 'end' as const,
       },
     },
-  }
+  };
 
   return (
-    <Card className="h-[300px]">
+    <Card className='h-[300px]'>
       <Bar options={options} data={chartData} />
     </Card>
   );
-} 
+}

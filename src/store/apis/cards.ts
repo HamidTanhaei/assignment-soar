@@ -18,6 +18,4 @@ export const cardsApi = api.injectEndpoints({
   }),
 });
 
-export const {
-  useGetCardsQuery,
-} = cardsApi; 
+export const { useGetCardsQuery } = cardsApi;

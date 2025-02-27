@@ -4,9 +4,9 @@ import { Transaction } from '@/pages/Home/components/RecentTransactions.tsx';
 
 type WeeklyStats = {
   id: string;
-  type: "Withdraw" | "Deposit";
+  type: 'Withdraw' | 'Deposit';
   value: number;
-  label: "Sat" | "Sun" | "Mon" | "Tue" | "Wed" | "Thu" | "Fri";
+  label: 'Sat' | 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri';
 }[];
 
 type ExpensesStats = {
@@ -25,22 +25,22 @@ export const transactionsApi = api.injectEndpoints({
       query: () => ApiUrl.transactions,
       providesTags: ['Transaction'],
     }),
-    getStatsWeekly: builder.query<WeeklyStats, void>({  
+    getStatsWeekly: builder.query<WeeklyStats, void>({
       query: () => ApiUrl.statsWeekly,
       providesTags: ['TransactionStatsWeekly'],
     }),
-    getStatsExpenses: builder.query<ExpensesStats, void>({  
+    getStatsExpenses: builder.query<ExpensesStats, void>({
       query: () => ApiUrl.statsExpenses,
       providesTags: ['TransactionStatsExpenses'],
     }),
-    getStatsBalanceHistory: builder.query<MonthlyBalanceStats, void>({  
+    getStatsBalanceHistory: builder.query<MonthlyBalanceStats, void>({
       query: () => ApiUrl.statsBalanceHistory,
       providesTags: ['TransactionStatsBalanceHistory'],
     }),
   }),
 });
 
-export const { 
+export const {
   useGetTransactionsQuery,
   useGetStatsWeeklyQuery,
   useGetStatsExpensesQuery,

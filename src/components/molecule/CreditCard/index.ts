@@ -1,1 +1,1 @@
-export { CreditCard } from "./CreditCard.tsx"
+export { CreditCard } from './CreditCard.tsx';

@@ -17,6 +17,4 @@ export const contactsApi = api.injectEndpoints({
   }),
 });
 
-export const {
-  useGetContactsQuery,
-} = contactsApi; 
+export const { useGetContactsQuery } = contactsApi;

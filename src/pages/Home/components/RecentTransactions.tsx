@@ -1,8 +1,5 @@
 import { Card } from '@/components/atom/card.tsx';
-import { IconCardMulti } from '@/components/atom/Icon/IconCardMulti.tsx';
-import { IconPaypal } from '@/components/atom/Icon/IconPaypal.tsx';
-import { IconCoin } from '@/components/atom/Icon/IconCoin.tsx';
-import { cn } from '@/lib/utils.ts';
+import { IconCardMulti, IconPaypal, IconCoin } from '@/components/atom/Icon';
 
 export type Transaction = {
   id: string;
@@ -13,9 +10,9 @@ export type Transaction = {
 };
 
 const icons = {
-  card: <IconCardMulti className="w-6 h-6 text-amber-400" />,
-  paypal: <IconPaypal className="w-6 h-6 text-blue-500" />,
-  money: <IconCoin className="w-6 h-6 text-emerald-400" />,
+  card: <IconCardMulti className='w-6 h-6 text-amber-400' />,
+  paypal: <IconPaypal className='w-6 h-6 text-blue-500' />,
+  money: <IconCoin className='w-6 h-6 text-emerald-400' />,
 };
 
 const backgroundColors = {
@@ -26,16 +23,16 @@ const backgroundColors = {
 
 function TransactionItem({ transaction }: { transaction: Transaction }) {
   const { title, date, amount, type } = transaction;
-  
+
   return (
-    <div className="flex items-center justify-between">
-      <div className="flex items-center gap-4">
+    <div className='flex items-center justify-between'>
+      <div className='flex items-center gap-4'>
         <div className={`p-4 ${backgroundColors[type]} rounded-full`}>
           {icons[type]}
         </div>
         <div>
-          <h3 className="font-medium text-zinc-700">{title}</h3>
-          <p className="text-sm text-slate-400">{date}</p>
+          <h3 className='font-medium text-zinc-700'>{title}</h3>
+          <p className='text-sm text-slate-400'>{date}</p>
         </div>
       </div>
       <span className={amount < 0 ? 'text-red-500' : 'text-emerald-400'}>
@@ -50,15 +47,21 @@ interface RecentTransactionsProps {
   isLoading?: boolean;
 }
 
-export function RecentTransactions({ transactions, isLoading }: RecentTransactionsProps) {
+export function RecentTransactions({
+  transactions,
+  isLoading,
+}: RecentTransactionsProps) {
   return (
-    <Card disablePadding={true} className="h-[214px] md:h-[235px] flex flex-col gap-3 overflow-y-scroll no-scrollbar p-6">
+    <Card
+      disablePadding={true}
+      className='h-[214px] md:h-[235px] flex flex-col gap-3 overflow-y-scroll no-scrollbar p-6'
+    >
       {isLoading ? (
-        <div className="flex justify-center items-center h-full">
+        <div className='flex justify-center items-center h-full'>
           <p>Loading transactions...</p>
         </div>
       ) : !transactions || transactions.length === 0 ? (
-        <div className="flex justify-center items-center h-full">
+        <div className='flex justify-center items-center h-full'>
           <p>No recent transactions</p>
         </div>
       ) : (
@@ -68,4 +71,4 @@ export function RecentTransactions({ transactions, isLoading }: RecentTransactio
       )}
     </Card>
   );
-} 
+}

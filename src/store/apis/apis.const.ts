@@ -5,4 +5,4 @@ export const ApiUrl = {
   statsExpenses: 'stats-expenses-pie',
   statsBalanceHistory: 'stats-balance-history',
   contacts: 'contacts',
-}
+};

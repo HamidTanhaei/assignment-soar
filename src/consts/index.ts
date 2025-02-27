@@ -1,1 +1,1 @@
-export {browserRoutes} from './browserRoutes';
+export { browserRoutes } from './browserRoutes';

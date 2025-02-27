@@ -1,5 +1,5 @@
-import { CreditCard } from "@/components/molecule/CreditCard/CreditCard.tsx"
-import { useGetCardsQuery } from "@/store/apis/cards.ts"
+import { CreditCard } from '@/components/molecule/CreditCard/CreditCard.tsx';
+import { useGetCardsQuery } from '@/store/apis/cards.ts';
 
 export function CreditCards() {
   const { data: cards, isLoading, error } = useGetCardsQuery();
@@ -10,13 +10,15 @@ export function CreditCards() {
 
   return (
     <div>
-      <h1 className="text-sm md:text-lg font-semibold text-blue-900 mb-6">My Credit Cards</h1>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+      <h1 className='text-sm md:text-lg font-semibold text-blue-900 mb-6'>
+        My Credit Cards
+      </h1>
+
+      <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8'>
         {cards.map((card, index) => (
           <CreditCard
             key={card.id}
-            variant={index === 0 ? "dark" : "light"}
+            variant={index === 0 ? 'dark' : 'light'}
             balance={card.balance}
             cardHolder={card.cardHolder}
             cardNumber={card.cardNumber}
@@ -25,5 +27,5 @@ export function CreditCards() {
         ))}
       </div>
     </div>
-  )
+  );
 }
