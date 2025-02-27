@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router';
 
-import { CreditCard } from '@/components/molecule/CreditCard/CreditCard.tsx';
 import {
   WeeklyActivity,
   QuickTransfer,
@@ -17,10 +16,11 @@ import {
 } from '@/store/apis/transactions.ts';
 import { useGetCardsQuery } from '@/store/apis/cards.ts';
 import { browserRoutes } from '@/consts';
+import Cards from '@/components/Cards';
 
 export function Home() {
   const {
-    data: cards,
+    data: cards = [],
     isLoading: isLoadingCards,
     error: cardsError,
   } = useGetCardsQuery();
@@ -32,33 +32,6 @@ export function Home() {
     useGetStatsExpensesQuery();
   const { data: balanceHistory, isLoading: isLoadingBalanceHistory } =
     useGetStatsBalanceHistoryQuery();
-
-  const displayCards =
-    !isLoadingCards && cards
-      ? cards
-      : [
-          {
-            id: 'loading1',
-            balance: 0,
-            cardHolder: 'Loading...',
-            cardNumber: 'Loading...',
-            validThru: 'Loading...',
-          },
-          {
-            id: 'loading2',
-            balance: 0,
-            cardHolder: 'Loading...',
-            cardNumber: 'Loading...',
-            validThru: 'Loading...',
-          },
-          {
-            id: 'loading3',
-            balance: 0,
-            cardHolder: 'Loading...',
-            cardNumber: 'Loading...',
-            validThru: 'Loading...',
-          },
-        ];
 
   const formattedExpenseStats = expenseStats
     ? expenseStats.map((item) => ({
@@ -90,26 +63,7 @@ export function Home() {
             See All
           </Link>
         </div>
-        <div className='w-full flex flex-row gap-8 overflow-x-scroll no-scrollbar' role="listbox">
-          {cardsError ? (
-            <div>Error loading cards</div>
-          ) : !cards && !isLoadingCards ? (
-            <div>No cards found</div>
-          ) : (
-            displayCards
-              .slice(0, 4)
-              .map((card, index) => (
-                <CreditCard
-                  key={card.id}
-                  variant={index === 0 ? 'dark' : 'light'}
-                  balance={card.balance}
-                  cardHolder={card.cardHolder}
-                  cardNumber={card.cardNumber}
-                  validThru={card.validThru}
-                />
-              ))
-          )}
-        </div>
+        <Cards cards={cards} isLoadingCards={isLoadingCards} cardsError={!!cardsError} />
       </div>
 
       <div className='col-span-12 xl:col-span-4' aria-labelledby="recent-transactions">

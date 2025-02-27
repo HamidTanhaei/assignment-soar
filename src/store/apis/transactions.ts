@@ -1,6 +1,6 @@
 import { api } from '../api';
 import { ApiUrl } from './apis.const';
-import { Transaction } from '@/types/general';
+import { Transaction } from '@/types';
 
 type WeeklyStats = {
   id: string;

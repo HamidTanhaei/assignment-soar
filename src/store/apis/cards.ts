@@ -1,13 +1,6 @@
 import { api } from '../api';
 import { ApiUrl } from './apis.const';
-
-export interface Card {
-  id: string;
-  cardNumber: string;
-  cardHolder: string;
-  validThru: string;
-  balance: number;
-}
+import { Card } from '@/types';
 
 export const cardsApi = api.injectEndpoints({
   endpoints: (builder) => ({

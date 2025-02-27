@@ -9,4 +9,6 @@ export interface ProfileFormData {
   city: string;
   postalCode: string;
   country: string;
-} 
+}
+
+export type ProfileFormKeys = keyof ProfileFormData; 
