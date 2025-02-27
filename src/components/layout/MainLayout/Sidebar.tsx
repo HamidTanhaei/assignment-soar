@@ -48,7 +48,7 @@ export function Sidebar() {
             const isActive = location.pathname === item.href;
 
             return (
-              <li key={item.href}>
+              <li key={item.label}>
                 <Link
                   to={item.href || '#'}
                   className={`flex items-center gap-6 pl-11 pr-3 py-2 rounded-lg relative
