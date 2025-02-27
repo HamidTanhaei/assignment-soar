@@ -1,5 +1,16 @@
-import { IconHome, IconTransaction, IconEconomics, IconLoan, IconServices, IconUser, IconInvestment, IconCreditCard, IconSettings, IconTask } from "@/components/ui/Icon"
 import { Link, useLocation } from "react-router"
+import {
+  IconHome,
+  IconTransaction,
+  IconEconomics,
+  IconLoan,
+  IconServices,
+  IconUser,
+  IconInvestment,
+  IconCreditCard,
+  IconSettings,
+  IconTask
+} from "../../atom/Icon";
 import {browserRoutes} from "@/consts";
 
 const menuItems = [

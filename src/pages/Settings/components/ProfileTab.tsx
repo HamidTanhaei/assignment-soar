@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { ProfilePicture } from './ProfilePicture';
-import { Input } from './Input';
+import { ProfilePicture } from './ProfilePicture.tsx';
+import { Input } from './Input.tsx';
 
 interface ProfileFormData {
     name: string;

@@ -1,5 +1,5 @@
-import { CreditCard } from "@/components/CreditCard/CreditCard"
-import { useGetCardsQuery } from "@/store/apis/cards"
+import { CreditCard } from "@/components/molecule/CreditCard/CreditCard.tsx"
+import { useGetCardsQuery } from "@/store/apis/cards.ts"
 
 export function CreditCards() {
   const { data: cards, isLoading, error } = useGetCardsQuery();

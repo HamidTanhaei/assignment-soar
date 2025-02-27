@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { ProfileTab } from '@/components/settings/ProfileTab';
-import { PreferencesTab } from '@/components/settings/PreferencesTab';
-import { SecurityTab } from '@/components/settings/SecurityTab';
-import { Card } from '@/components/ui/card';
+import { ProfileTab, PreferencesTab, SecurityTab } from './components';
+import { Card } from '@/components/atom/card.tsx';
 
 export function Settings() {
     const [activeTab, setActiveTab] = useState('profile');
@@ -34,9 +32,9 @@ export function Settings() {
                     ))}
                 </div>
                 <div className="max-w-4xl">
-                {activeTab === 'profile' && <ProfileTab />}
-                {activeTab === 'preferences' && <PreferencesTab />}
-                {activeTab === 'security' && <SecurityTab />}
+                    {activeTab === 'profile' && <ProfileTab />}
+                    {activeTab === 'preferences' && <PreferencesTab />}
+                    {activeTab === 'security' && <SecurityTab />}
                 </div>
             </div>
         </Card>

@@ -1,6 +1,6 @@
 import {ComponentProps} from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils.ts"
 
 export const Card = ({ className, disablePadding = false, ...props }: ComponentProps<"div"> & { disablePadding?: boolean }) => {
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IconEdit } from "../ui/Icon";
+import { IconEdit } from "../../../components/atom/Icon";
 
 interface ProfilePictureProps {
     defaultImage?: string;

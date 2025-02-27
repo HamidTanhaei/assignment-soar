@@ -1,4 +1,4 @@
-import { IconMenu, IconNotification, IconSearch, IconSettingsOutline } from '@/components/ui/Icon'
+import { IconMenu, IconNotification, IconSearch, IconSettingsOutline } from '../../atom/Icon'
 
 interface HeaderProps {
   onMenuClick: () => void;

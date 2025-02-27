@@ -1,4 +1,4 @@
-import { Card } from "./ui/card"
+import { Card } from "../../../components/atom/card.tsx"
 import { Pie } from 'react-chartjs-2'
 import {
   Chart as ChartJS,

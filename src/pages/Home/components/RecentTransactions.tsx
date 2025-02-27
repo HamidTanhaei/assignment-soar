@@ -1,8 +1,8 @@
-import { Card } from '@/components/ui/card';
-import { IconCardMulti } from './ui/Icon/IconCardMulti';
-import { IconPaypal } from './ui/Icon/IconPaypal';
-import { IconCoin } from './ui/Icon/IconCoin';
-import { cn } from '@/lib/utils';
+import { Card } from '@/components/atom/card.tsx';
+import { IconCardMulti } from '@/components/atom/Icon/IconCardMulti.tsx';
+import { IconPaypal } from '@/components/atom/Icon/IconPaypal.tsx';
+import { IconCoin } from '@/components/atom/Icon/IconCoin.tsx';
+import { cn } from '@/lib/utils.ts';
 
 export type Transaction = {
   id: string;

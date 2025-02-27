@@ -1,4 +1,4 @@
-import { Card } from "./ui/card"
+import { Card } from "../../../components/atom/card.tsx"
 import { Line } from 'react-chartjs-2'
 import {
   Chart as ChartJS,

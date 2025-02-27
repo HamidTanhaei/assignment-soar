@@ -1,8 +1,8 @@
-import { Card } from "./ui/card"  
-import { IconArrowRight, IconSend } from "./ui/Icon"
+import { Card } from "../../../components/atom/card.tsx"
+import { IconArrowRight, IconSend } from "../../../components/atom/Icon"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { useGetContactsQuery } from "@/store/apis/contacts"
+import { useGetContactsQuery } from "@/store/apis/contacts.ts"
 
 export function QuickTransfer() {
   const [currentSlide, setCurrentSlide] = useState(0)
