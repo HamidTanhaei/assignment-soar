@@ -73,7 +73,7 @@ export function QuickTransfer() {
             <div className='text-xs xl:text-sm text-indigo-400 text-nowrap'>
               Write Amount
             </div>
-            <div className='md:w-auto w-full order-last md:order-none bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-2 xl:gap-4 relative'>
+            <div className='md:w-auto w-full order-last md:order-none bg-slate-100 hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-2 xl:gap-4 relative align-strech'>
               <input
                 {...form.register('amount', {
                   pattern: {
@@ -83,7 +83,7 @@ export function QuickTransfer() {
                   required: 'Amount is required',
                 })}
                 placeholder='Enter amount you want to send'
-                className='w-full py-2 xl:py-4 px-3 xl:px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400'
+                className='w-full py-2 xl:py-3.5 px-3 xl:px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400'
               />
               {(form.errors.amount || form.message) && (
                 <span className='text-red-500 text-xs absolute -bottom-5'>
@@ -92,7 +92,7 @@ export function QuickTransfer() {
               )}
               <button
                 onClick={form.handleSubmit(form.onSubmit)}
-                className='flex gap-3 py-2 xl:py-3 px-6 bg-zinc-700 text-white rounded-full text-sm xl:text-md text-meduim hover:bg-zinc-600 transition-colors align-center'
+                className='flex gap-3 py-2 xl:py-4 px-6 bg-zinc-700 text-white rounded-full text-[16px] xl:text-md font-semibold hover:bg-zinc-600 transition-colors align-center'
                 aria-label={`Send ${form.watch('amount') || ''} dollars to ${data.contacts.find(c => c.id === carousel.selectedContact)?.name || ''}`}
               >
                 Send <IconSend className='w-4 h-4 xl:w-5 xl:h-5' />

@@ -21,18 +21,18 @@ export function Header({ onMenuClick }: HeaderProps) {
             Overview
           </div>
 
-          <div className='md:w-auto w-full mt-5 md:mt-0 order-last md:order-none px-5 md:px-6 bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-3 md:gap-4'>
+          <div className='md:w-auto w-full mt-5 md:mt-0 order-last md:order-none px-5 md:px-6 bg-slate-100 hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-3 md:gap-4'>
             <IconSearch width={19} height={19} />
             <input
               type='text'
               placeholder='Search for something'
-              className='w-full py-3 md:py-4 border-none outline-none bg-transparent text-xs md:text-sm placeholder:text-slate-400'
+              className='w-full py-3 md:py-3.5 border-none outline-none bg-transparent text-xs md:text-sm placeholder:text-slate-400'
             />
           </div>
-          <div className='bg-accent hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full p-3 hidden md:block'>
+          <div className='bg-slate-100 hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full p-3 hidden md:block'>
             <IconSettingsOutline width={25} height={25} />
           </div>
-          <div className='bg-accent hover:bg-gray-200 cursor-pointer text-blue-700 rounded-full p-3 hidden md:block'>
+          <div className='bg-slate-100 hover:bg-gray-200 cursor-pointer text-blue-700 rounded-full p-3 hidden md:block'>
             <IconNotification width={25} height={25} />
           </div>
 

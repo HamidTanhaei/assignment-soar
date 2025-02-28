@@ -33,7 +33,7 @@ export function Sidebar() {
   const location = useLocation();
 
   return (
-    <aside className='w-[250px] border-r flex flex-col bg-white min-h-screen'>
+    <aside className='w-[250px] border-r border-gray-200 flex flex-col bg-white min-h-screen'>
       <div className='flex items-center gap-2.5 pl-11 mb-8 px-6 pt-7'>
         <div className='rounded text-white grid place-items-center text-zinc-700'>
           <IconTask width={25} height={33} />

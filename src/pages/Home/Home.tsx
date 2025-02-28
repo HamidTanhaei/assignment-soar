@@ -18,6 +18,12 @@ import { useGetCardsQuery } from '@/store/apis/cards.ts';
 import { browserRoutes } from '@/consts';
 import Cards from '@/components/Cards';
 
+const Header = ({title, id}: {title: string, id: string}) => {
+  return (
+    <h2 className='text-sm md:text-[22px] font-semibold text-blue-900 mb-4' id={id}>{title}</h2>
+  );
+};
+
 export function Home() {
   const {
     data: cards = [],
@@ -54,10 +60,10 @@ export function Home() {
     <div className='grid grid-cols-12 gap-6'>
       <div className='col-span-12 xl:col-span-8' role="group" aria-labelledby="credit-cards">
         <div className='flex items-center justify-between mb-4 text-blue-900'>
-          <h2 className='text-sm md:text-lg font-semibold' id="credit-cards">My Cards</h2>
+          <Header title="My Cards" id="credit-cards" />
           <Link
             to={browserRoutes['credit-cards']}
-            className='text-sm md:text-sm text-blue-900 hover:underline font-semibold'
+            className='text-sm md:text-[17px] text-blue-900 hover:underline font-semibold'
             aria-label="See all credit cards"
           >
             See All
@@ -67,9 +73,7 @@ export function Home() {
       </div>
 
       <div className='col-span-12 xl:col-span-4' aria-labelledby="recent-transactions">
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="recent-transactions">
-          Recent Transactions
-        </h2>
+        <Header title="Recent Transactions" id="recent-transactions" />
         <RecentTransactions
           transactions={transactions || []}
           isLoading={isLoadingTransactions}
@@ -77,9 +81,7 @@ export function Home() {
       </div>
 
       <div className='col-span-12 md:col-span-8' aria-labelledby="weekly-activity">
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="weekly-activity">
-          Weekly Activity
-        </h2>
+        <Header title="Weekly Activity" id="weekly-activity" />
         <WeeklyActivity
           data={weeklyStats || []}
           isLoading={isLoadingWeeklyStats}
@@ -87,9 +89,7 @@ export function Home() {
       </div>
 
       <div className='col-span-12 md:col-span-4' aria-labelledby="expense-statistics">
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="expense-statistics">
-          Expense Statistics
-        </h2>
+        <Header title="Expense Statistics" id="expense-statistics" />
         <ExpenseStatistics
           data={formattedExpenseStats}
           isLoading={isLoadingExpenseStats}
@@ -97,16 +97,12 @@ export function Home() {
       </div>
 
       <div className='col-span-12 sm:col-span-6 lg:col-span-5' aria-labelledby="quick-transfer">
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="quick-transfer">
-          Quick Transfer
-        </h2>
+        <Header title="Quick Transfer" id="quick-transfer" />
         <QuickTransfer />
       </div>
 
       <div className='col-span-12 sm:col-span-6 lg:col-span-7' aria-labelledby="balance-history">
-        <h2 className='text-sm md:text-lg font-semibold text-blue-900 mb-4' id="balance-history">
-          Balance History
-        </h2>
+        <Header title="Balance History" id="balance-history" />
         <BalanceHistory
           data={formattedBalanceHistory}
           isLoading={isLoadingBalanceHistory}

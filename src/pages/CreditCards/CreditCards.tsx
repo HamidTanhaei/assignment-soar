@@ -10,7 +10,7 @@ export function CreditCards() {
 
   return (
     <div className='max-w-6xl'>
-      <h1 className='text-sm md:text-lg font-semibold text-blue-900 mb-6'>
+      <h1 className='text-sm md:text-lg font-semibold text-blue-900 mb-4'>
         My Credit Cards
       </h1>
 
