@@ -9,7 +9,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({ error, inputProps, suf
             {prefix}
             <input
                 {...inputProps}
-                className={cn('w-full py-2 lg:py-3.5 border-none outline-none bg-transparent text-xs sm:text-[13px] placeholder:text-slate-400 px-3 xl:px-6')}
+                className={cn('w-full py-2 lg:py-3.5 border-none outline-none bg-transparent text-xs lg:text-[16px] placeholder:text-slate-400 px-3 xl:px-6')}
             />
             {error && (
                 <span className='text-red-500 text-xs absolute -bottom-5'>
