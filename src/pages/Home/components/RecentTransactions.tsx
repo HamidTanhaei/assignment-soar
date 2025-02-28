@@ -19,7 +19,7 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
   const { title, date, amount, type } = transaction;
 
   return (
-    <div className='flex items-center justify-between' role="option" tabIndex={0}>
+    <div className='text-[14px] lg:text-sm flex items-center justify-between' role="option" tabIndex={0}>
       <div className='flex items-center gap-4'>
         <div className={`p-4 ${backgroundColors[type]} rounded-full`} aria-label={`${type}`}>
           {icons[type]}

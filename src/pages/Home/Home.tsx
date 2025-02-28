@@ -59,7 +59,7 @@ export function Home() {
   return (
     <div className='grid grid-cols-12 gap-6'>
       <div className='col-span-12 xl:col-span-8' role="group" aria-labelledby="credit-cards">
-        <div className='flex items-center justify-between mb-4 text-blue-900'>
+        <div className='flex items-center justify-between text-blue-900'>
           <Header title="My Cards" id="credit-cards" />
           <Link
             to={browserRoutes['credit-cards']}

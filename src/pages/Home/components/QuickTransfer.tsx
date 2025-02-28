@@ -1,5 +1,6 @@
 import { Card } from '@/components/atom';
 import { IconArrowRight, IconSend } from '@/components/atom/Icon';
+import { SearchInput } from '@/components/molecule';
 import {useQuickTransfer} from "@/pages/Home/components/QuickTransfer.hook.ts";
 
 export function QuickTransfer() {
@@ -73,31 +74,21 @@ export function QuickTransfer() {
             <div className='text-xs xl:text-sm text-indigo-400 text-nowrap'>
               Write Amount
             </div>
-            <div className='md:w-auto w-full order-last md:order-none bg-slate-100 hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-2 xl:gap-4 relative align-strech'>
-              <input
-                {...form.register('amount', {
-                  pattern: {
-                    value: /^\d*\.?\d*$/,
-                    message: 'Please enter a valid number',
-                  },
-                  required: 'Amount is required',
-                })}
-                placeholder='Enter amount you want to send'
-                className='w-full py-2 xl:py-3.5 px-3 xl:px-6 border-none outline-none bg-transparent text-sm placeholder:text-slate-400'
-              />
-              {(form.errors.amount || form.message) && (
-                <span className='text-red-500 text-xs absolute -bottom-5'>
-                  {form.message || form.errors.amount?.message?.toString()}
-                </span>
-              )}
-              <button
-                onClick={form.handleSubmit(form.onSubmit)}
-                className='flex gap-3 py-2 xl:py-4 px-6 bg-zinc-700 text-white rounded-full text-[16px] xl:text-md font-semibold hover:bg-zinc-600 transition-colors align-center'
-                aria-label={`Send ${form.watch('amount') || ''} dollars to ${data.contacts.find(c => c.id === carousel.selectedContact)?.name || ''}`}
-              >
-                Send <IconSend className='w-4 h-4 xl:w-5 xl:h-5' />
-              </button>
-            </div>
+            <SearchInput
+              error={form.message ||form.errors.amount?.message?.toString()}
+              inputProps={{placeholder: 'Enter amount you want to send', ...form.register('amount', {
+                pattern: {
+                  value: /^\d*\.?\d*$/,
+                  message: 'Please enter a valid number',
+                },
+                required: 'Amount is required',
+              })}}
+              suffixButton={<>Send <IconSend className='w-4 h-4 xl:w-5 xl:h-5' /></>}
+              suffixProps={{
+                onClick: form.handleSubmit(form.onSubmit),
+                'aria-label': `Send ${form.watch('amount') || ''} dollars to ${data.contacts.find(c => c.id === carousel.selectedContact)?.name || ''}`
+              }}
+            />
           </>
         ) : (
           <div 

@@ -4,10 +4,17 @@ import {
   IconSearch,
   IconSettingsOutline,
 } from '../../atom/Icon';
+import { SearchInput } from '../../molecule';
 
 interface HeaderProps {
   onMenuClick: () => void;
 }
+
+const IconButton = ({ icon: Icon, className }: { icon: React.ComponentType<{ width: number; height: number }>; className: string }) => (
+  <div className={`bg-slate-100 hover:bg-gray-200 cursor-pointer rounded-full p-2 lg:p-3 hidden md:block ${className}`}>
+    <Icon width={25} height={25} />
+  </div>
+);
 
 export function Header({ onMenuClick }: HeaderProps) {
   return (
@@ -20,24 +27,18 @@ export function Header({ onMenuClick }: HeaderProps) {
           <div className='flex md:flex-1 items-center justify-start text-lg md:text-xl font-semibold whitespace-nowrap text-blue-900'>
             Overview
           </div>
-
-          <div className='md:w-auto w-full mt-5 md:mt-0 order-last md:order-none px-5 md:px-6 bg-slate-100 hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full flex items-center gap-3 md:gap-4'>
-            <IconSearch width={19} height={19} />
-            <input
-              type='text'
-              placeholder='Search for something'
-              className='w-full py-3 md:py-3.5 border-none outline-none bg-transparent text-xs md:text-sm placeholder:text-slate-400'
-            />
-          </div>
-          <div className='bg-slate-100 hover:bg-gray-200 cursor-pointer text-slate-400 rounded-full p-3 hidden md:block'>
-            <IconSettingsOutline width={25} height={25} />
-          </div>
-          <div className='bg-slate-100 hover:bg-gray-200 cursor-pointer text-blue-700 rounded-full p-3 hidden md:block'>
-            <IconNotification width={25} height={25} />
-          </div>
+          <SearchInput
+            className='mt-5 sm:mt-0'
+            prefix={<IconSearch width={19} height={19} />}
+            inputProps={{
+              placeholder: 'Search for something',
+            }}
+          />
+          <IconButton icon={IconSettingsOutline} className='text-slate-400' />
+          <IconButton icon={IconNotification} className='text-blue-700' />
 
           <img
-            className={'w-9 h-9 md:w-[60px] md:h-[60px] rounded-full'}
+            className={'w-10 h-10 lg:w-[60px] lg:h-[60px] rounded-full'}
             src='/images/user-photo.png'
             alt='user photo'
           />
